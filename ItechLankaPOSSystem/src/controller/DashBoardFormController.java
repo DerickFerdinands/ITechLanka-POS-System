@@ -101,7 +101,8 @@ public class DashBoardFormController {
     public void goToSuppliersOnAction(ActionEvent actionEvent) {
     }
 
-    public void goToDirectorsOnAction(ActionEvent actionEvent) {
+    public void goToDirectorsOnAction(ActionEvent actionEvent) throws IOException {
+        setUI("DirectorManagementForm");
     }
 
     public void goToPackagesOnAction(ActionEvent actionEvent) {
