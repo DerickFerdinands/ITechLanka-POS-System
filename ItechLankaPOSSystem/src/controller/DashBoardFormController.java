@@ -92,7 +92,8 @@ public class DashBoardFormController {
     public void goToSettingsOnAction(ActionEvent actionEvent) {
     }
 
-    public void goToProfitOnAction(ActionEvent actionEvent) {
+    public void goToProfitOnAction(ActionEvent actionEvent) throws IOException {
+        setUI("ProfitManagementForm");
     }
 
     public void goToReportsOnAction(ActionEvent actionEvent) {
