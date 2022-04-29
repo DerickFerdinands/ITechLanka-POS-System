@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('BebasNeue-Regular.ttf');
+}
+
+.text {
+    -fx-font-family: 'SansSerif';
+    -fx-font-size: 15;
+}
+
+.MainContext {
+    -fx-background-radius: 10;
+    -fx-border-color: White;
+}
+
+.StageStyle {
+    -fx-background-color: White;
+}
+
+
+.txtSearch{
+    -fx-text-fill: #34354B;
+}
+
+.button{
+    -fx-font-family: 'SansSerif';
+    -fx-font-size: 13;
+}
