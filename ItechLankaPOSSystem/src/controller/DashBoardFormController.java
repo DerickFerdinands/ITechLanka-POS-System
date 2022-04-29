@@ -67,7 +67,8 @@ public class DashBoardFormController {
 
     }
 
-    public void goToItemsOnAction(ActionEvent actionEvent) {
+    public void goToItemsOnAction(ActionEvent actionEvent) throws IOException {
+        setUI("ItemManagementForm");
     }
 
     public void changeButtonUI(MouseEvent mouseEvent) {
