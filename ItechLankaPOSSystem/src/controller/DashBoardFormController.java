@@ -100,7 +100,8 @@ public class DashBoardFormController {
         setUI("ReportManagementForm");
     }
 
-    public void goToSuppliersOnAction(ActionEvent actionEvent) {
+    public void goToSuppliersOnAction(ActionEvent actionEvent) throws IOException {
+        setUI("SupplierMangementForm");
     }
 
     public void goToDirectorsOnAction(ActionEvent actionEvent) throws IOException {
