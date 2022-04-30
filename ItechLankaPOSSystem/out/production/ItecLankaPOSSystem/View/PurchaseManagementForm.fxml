@@ -34,12 +34,12 @@
             <JFXTextField focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="38.0" layoutY="449.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <AnchorPane layoutX="38.0" layoutY="456.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
             <JFXTextField focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="38.0" layoutY="533.0" prefHeight="52.0" prefWidth="108.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <AnchorPane layoutX="38.0" layoutY="544.0" prefHeight="52.0" prefWidth="108.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
             <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="86.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
@@ -54,32 +54,32 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="425.0" opacity="0.66" text="Product/Item Name" textFill="#263549">
+      <Label layoutX="41.0" layoutY="432.0" opacity="0.66" text="Product/Item Name" textFill="#263549">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="508.0" opacity="0.66" text="Buying Price" textFill="#263549">
+      <Label layoutX="41.0" layoutY="519.0" opacity="0.66" text="Buying Price" textFill="#263549">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="600.0" opacity="0.66" text="Supplier Mobile" textFill="#263549">
+      <Label layoutX="41.0" layoutY="607.0" opacity="0.66" text="Supplier Mobile" textFill="#263549">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <JFXButton layoutX="42.0" layoutY="782.0" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #003171;" text="Add Purchase" textFill="#cdd9e1">
+      <JFXButton layoutX="48.0" layoutY="782.0" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #003171;" text="Add Purchase" textFill="#cdd9e1">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="221.0" layoutY="782.0" prefHeight="39.0" prefWidth="168.0" style="-fx-background-color: #E6EFFC;" text="Cancel" textFill="#69737d">
+      <JFXButton layoutX="222.0" layoutY="782.0" prefHeight="39.0" prefWidth="168.0" style="-fx-background-color: #E6EFFC;" text="Cancel" textFill="#69737d">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <AnchorPane layoutX="38.0" layoutY="625.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <AnchorPane layoutX="38.0" layoutY="632.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
             <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
@@ -127,42 +127,42 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="163.0" layoutY="533.0" prefHeight="52.0" prefWidth="108.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <AnchorPane layoutX="163.0" layoutY="544.0" prefHeight="52.0" prefWidth="108.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
             <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="86.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
-      <Label layoutX="166.0" layoutY="508.0" opacity="0.66" text="Qty" textFill="#263549">
+      <Label layoutX="166.0" layoutY="519.0" opacity="0.66" text="Qty" textFill="#263549">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="288.0" layoutY="533.0" prefHeight="52.0" prefWidth="108.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <AnchorPane layoutX="288.0" layoutY="544.0" prefHeight="52.0" prefWidth="108.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
             <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="86.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
-      <Label layoutX="291.0" layoutY="508.0" opacity="0.66" text="Cost" textFill="#263549">
+      <Label layoutX="291.0" layoutY="519.0" opacity="0.66" text="Cost" textFill="#263549">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="683.0" opacity="0.66" text="Date" textFill="#263549">
+      <Label layoutX="41.0" layoutY="691.0" opacity="0.66" text="Date" textFill="#263549">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="38.0" layoutY="708.0" prefHeight="52.0" prefWidth="154.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <AnchorPane layoutX="38.0" layoutY="716.0" prefHeight="52.0" prefWidth="154.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
             <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="161.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
-      <Label layoutX="225.0" layoutY="683.0" opacity="0.66" text="Time" textFill="#263549">
+      <Label layoutX="225.0" layoutY="691.0" opacity="0.66" text="Time" textFill="#263549">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="222.0" layoutY="708.0" prefHeight="52.0" prefWidth="154.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <AnchorPane layoutX="222.0" layoutY="716.0" prefHeight="52.0" prefWidth="154.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
             <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="161.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
