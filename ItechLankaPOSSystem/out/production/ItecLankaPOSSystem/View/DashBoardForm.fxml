@@ -149,7 +149,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="btnOrders" alignment="BOTTOM_CENTER" layoutY="302.0" onAction="#goToOrdersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Orders" textFill="#848c94">
+      <JFXButton fx:id="btnOrders" alignment="BOTTOM_CENTER" layoutY="302.0" onAction="#goToOrdersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Purchases" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>

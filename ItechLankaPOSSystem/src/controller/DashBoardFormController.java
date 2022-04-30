@@ -111,7 +111,8 @@ public class DashBoardFormController {
     public void goToPackagesOnAction(ActionEvent actionEvent) {
     }
 
-    public void goToOrdersOnAction(ActionEvent actionEvent) {
+    public void goToOrdersOnAction(ActionEvent actionEvent) throws IOException {
+        setUI("PurchaseManagementForm");
     }
 
     public void goToQuotationOnAction(ActionEvent actionEvent) throws IOException {

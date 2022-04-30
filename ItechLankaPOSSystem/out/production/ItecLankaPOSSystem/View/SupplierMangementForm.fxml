@@ -10,9 +10,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="861.0" prefWidth="1586.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #F3F1FB; -fx-border-radius: 5; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierMangementFormController">
    <children>
+      <ImageView fitHeight="712.0" fitWidth="1013.0" layoutX="523.0" layoutY="134.0">
+         <image>
+            <Image url="@../Assets/83afc4e49b91f84b685c9a5dd91bd4f9.jpg" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="38.0" fitWidth="165.0" layoutX="37.0" layoutY="46.0">
          <image>
             <Image url="@../Assets/Screenshot%202022-04-29%20174540.jpg" />
