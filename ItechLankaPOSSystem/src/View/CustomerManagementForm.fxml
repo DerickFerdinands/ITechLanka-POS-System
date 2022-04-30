@@ -19,19 +19,19 @@
       </ImageView>
       <AnchorPane layoutX="58.0" layoutY="238.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtId" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtId" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children></AnchorPane>
       <AnchorPane layoutX="58.0" layoutY="328.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtName" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtName" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children></AnchorPane>
       <AnchorPane layoutX="58.0" layoutY="421.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtNIC" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtNIC" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children></AnchorPane>
       <AnchorPane layoutX="58.0" layoutY="513.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtMobile" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtMobile" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children></AnchorPane>
       <Label layoutX="61.0" layoutY="214.0" opacity="0.66" text="Client ID" textFill="#263549">
          <font>
@@ -90,7 +90,7 @@
       </TableView>
       <AnchorPane layoutX="58.0" layoutY="615.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtAddress" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtAddress" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="484.0" layoutY="66.0" prefHeight="52.0" prefWidth="1067.0" style="-fx-border-color: #58D5E6; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">

@@ -2,6 +2,7 @@ package controller;
 
 import Model.Customer;
 import Util.NotificationUtil;
+import Util.ValidationUtil;
 import View.TM.CustomerTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -24,6 +25,8 @@ import tray.notification.TrayNotification;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 public class CustomerManagementFormController {
     public JFXTextField txtId;
@@ -41,12 +44,18 @@ public class CustomerManagementFormController {
     public JFXButton btnAddCustomer;
     public JFXTextField txtSearch;
 
+    LinkedHashMap<JFXTextField, Pattern> RegexMap = new LinkedHashMap<>();
+
     public void frequentFunctions() {
         clearAllFields();
         loadALlCustomers();
     }
 
     public void addCustomerOnAction(ActionEvent actionEvent) {
+       addOrUpdateCustomer();
+    }
+
+    public void addOrUpdateCustomer(){
         try {
             if (btnAddCustomer.getText().equals("Add Client")) {
                 if (CustomerCRUDController.saveCustomer(new Customer(txtId.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText()))) {
@@ -66,6 +75,7 @@ public class CustomerManagementFormController {
     }
 
     public void initialize() {
+        btnAddCustomer.setDisable(true);
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colNIC.setCellValueFactory(new PropertyValueFactory<>("nic"));
@@ -74,6 +84,14 @@ public class CustomerManagementFormController {
         colOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
 
         loadALlCustomers();
+
+        RegexMap.put(txtId,Pattern.compile("^(C00-)[0-9]{1,10}$"));
+        RegexMap.put(txtName,Pattern.compile("^[A-z ]+$"));
+        RegexMap.put(txtNIC,Pattern.compile("^[0-9]{10,15}(V)?$"));
+        RegexMap.put(txtMobile,Pattern.compile("^[+94]?[0-9]{10,11}$"));
+        RegexMap.put(txtAddress,Pattern.compile("^[A-z0-9 ,/]+$"));
+
+
 
         tblCustomer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -91,34 +109,13 @@ public class CustomerManagementFormController {
         txtMobile.setText(tm.getMobile());
         txtAddress.setText(tm.getAddress());
         btnAddCustomer.setText("Update Client");
-
-
     }
 
     private void loadALlCustomers() {
         ObservableList<CustomerTM> CustomerTableList = FXCollections.observableArrayList();
         try {
             for (Customer c : CustomerCRUDController.getAllCustomers()) {
-                JFXButton btn = new JFXButton("Delete");
-                btn.setStyle("-fx-border-color: #003171");
-                btn.setCursor(Cursor.HAND);
-                btn.setOnAction(event -> {
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure?", ButtonType.YES, ButtonType.NO);
-                    alert.showAndWait();
-                    ButtonType buttonType = alert.getResult();
-                    if (buttonType.equals(ButtonType.YES)) {
-                        try {
-                            if (CustomerCRUDController.deleteCustomer(c.getId())) {
-                                NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Deleted!", NotificationType.SUCCESS, Duration.millis(3000));
-                                frequentFunctions();
-                            }
-                        } catch (SQLException | ClassNotFoundException e) {
-                            e.printStackTrace();
-                            NotificationUtil.playNotification(AnimationType.POPUP, e.getMessage(), NotificationType.ERROR, Duration.millis(3000));
-                        }
-                    }
-                });
-                CustomerTableList.add(new CustomerTM(c.getId(), c.getName(), c.getNic(), c.getMobile(), c.getAddress(), btn));
+                CustomerTableList.add(new CustomerTM(c.getId(), c.getName(), c.getNic(), c.getMobile(), c.getAddress(), getJFXButton(c.getId())));
             }
 
             tblCustomer.setItems(CustomerTableList);
@@ -135,6 +132,19 @@ public class CustomerManagementFormController {
         txtAddress.clear();
         btnAddCustomer.setText("Add Client");
         tblCustomer.getSelectionModel().clearSelection();
+
+        resetFields(txtId);
+        resetFields(txtName);
+        resetFields(txtNIC);
+        resetFields(txtMobile);
+        resetFields(txtAddress);
+
+
+    }
+
+    public void resetFields(JFXTextField field){
+        field.getParent().setStyle("-fx-border-color :   #EDEDF0;"+"-fx-border-width:1.5;"+"-fx-border-radius:  5;"+"-fx-background-radius:  5;");
+
     }
 
     public void clearFieldsOnAction(ActionEvent actionEvent) {
@@ -185,5 +195,18 @@ public class CustomerManagementFormController {
             }
         });
         return btn;
+    }
+
+    public void validateFields(KeyEvent keyEvent) {
+       Object o =  ValidationUtil.Validate(RegexMap,btnAddCustomer);
+
+       if(keyEvent.getCode().equals(KeyCode.ENTER)) {
+           if (o instanceof JFXTextField) {
+               JFXTextField field = (JFXTextField) o;
+               field.requestFocus();
+           } else {
+               addOrUpdateCustomer();
+           }
+       }
     }
 }
