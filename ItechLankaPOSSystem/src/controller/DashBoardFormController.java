@@ -4,6 +4,7 @@ import Model.DashboardButton;
 import animatefx.animation.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -47,8 +49,9 @@ public class DashBoardFormController {
     DashboardButton lastClicked;
     ImageView image = new ImageView(new Image("/Assets/image 222(40).png"));
 
-    public void initialize() throws IOException {
+    public void initialize() throws IOException, SQLException, ClassNotFoundException {
 
+        DBConnection.getInstance().getConnection();
         new FadeIn(MainContext).setSpeed(10).play();
         new FadeIn(NavigationContext).setSpeed(5).play();
 

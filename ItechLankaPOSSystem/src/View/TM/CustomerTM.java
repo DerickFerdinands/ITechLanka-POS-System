@@ -1,31 +1,24 @@
-package Model;
+package View.TM;
 
-public class Customer {
+import com.jfoenix.controls.JFXButton;
+
+public class CustomerTM {
     private String id;
     private String name;
     private String nic;
     private String mobile;
     private String address;
-
-    public Customer() {
-    }
-
-    public Customer(String id, String name, String nic, String mobile, String address) {
-        this.id = id;
-        this.name = name;
-        this.nic = nic;
-        this.mobile = mobile;
-        this.address = address;
-    }
+    private JFXButton btn;
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerTM{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", nic='" + nic + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", address='" + address + '\'' +
+                ", btn=" + btn +
                 '}';
     }
 
@@ -67,5 +60,25 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public JFXButton getBtn() {
+        return btn;
+    }
+
+    public void setBtn(JFXButton btn) {
+        this.btn = btn;
+    }
+
+    public CustomerTM() {
+    }
+
+    public CustomerTM(String id, String name, String nic, String mobile, String address, JFXButton btn) {
+        this.id = id;
+        this.name = name;
+        this.nic = nic;
+        this.mobile = mobile;
+        this.address = address;
+        this.btn = btn;
     }
 }
