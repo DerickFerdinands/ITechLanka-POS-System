@@ -26,7 +26,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgCus" fitHeight="30.0" fitWidth="30.0" layoutX="88.0" layoutY="172.0">
+      <ImageView fx:id="imgCus" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="172.0">
          <image>
             <Image url="@../Assets/image%20(26).png" />
          </image>
@@ -34,7 +34,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgQuote" fitHeight="30.0" fitWidth="30.0" layoutX="87.0" layoutY="243.0">
+      <ImageView fx:id="imgQuote" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="243.0">
          <image>
             <Image url="@../Assets/image%20(27).png" />
          </image>
@@ -42,7 +42,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgOrder" fitHeight="30.0" fitWidth="30.0" layoutX="85.0" layoutY="316.0">
+      <ImageView fx:id="imgOrder" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="316.0">
          <image>
             <Image url="@../Assets/image%20(28).png" />
          </image>
@@ -50,7 +50,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgPackage" fitHeight="30.0" fitWidth="30.0" layoutX="85.0" layoutY="389.0">
+      <ImageView fx:id="imgPackage" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="389.0">
          <image>
             <Image url="@../Assets/image%20(29).png" />
          </image>
@@ -66,7 +66,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgDirector" fitHeight="30.0" fitWidth="30.0" layoutX="83.0" layoutY="540.0">
+      <ImageView fx:id="imgDirector" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="540.0">
          <image>
             <Image url="@../Assets/image%20(31).png" />
          </image>
@@ -74,7 +74,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgSupply" fitHeight="30.0" fitWidth="30.0" layoutX="82.0" layoutY="611.0">
+      <ImageView fx:id="imgSupply" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="611.0">
          <image>
             <Image url="@../Assets/image%20(32).png" />
          </image>
@@ -82,7 +82,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgReport" fitHeight="30.0" fitWidth="30.0" layoutX="82.0" layoutY="686.0">
+      <ImageView fx:id="imgReport" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="686.0">
          <image>
             <Image url="@../Assets/image%20(33).png" />
          </image>
@@ -90,7 +90,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgProfit" fitHeight="30.0" fitWidth="30.0" layoutX="83.0" layoutY="756.0">
+      <ImageView fx:id="imgProfit" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="756.0">
          <image>
             <Image url="@../Assets/image%20(34).png" />
          </image>
@@ -98,7 +98,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgSettings" fitHeight="30.0" fitWidth="30.0" layoutX="83.0" layoutY="828.0">
+      <ImageView fx:id="imgSettings" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="828.0">
          <image>
             <Image url="@../Assets/image%20(35).png" />
          </image>
@@ -157,7 +157,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="btnPackages" alignment="BOTTOM_CENTER" layoutY="376.0" onAction="#goToPackagesOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Packages" textFill="#848c94">
+      <JFXButton fx:id="btnPackages" alignment="BOTTOM_CENTER" layoutY="376.0" onAction="#goToPackagesOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Order History" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>

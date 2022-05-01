@@ -8,6 +8,16 @@ public class DashboardButton {
     private JFXButton btn;
     private ImageView view;
     private Image unselectedImage;
+    private int imageLayoutY;
+    private Image selectedImage;
+
+    public DashboardButton(JFXButton btn, ImageView view, Image unselectedImage, int imageLayoutY, Image selectedImage) {
+        this.btn = btn;
+        this.view = view;
+        this.unselectedImage = unselectedImage;
+        this.imageLayoutY = imageLayoutY;
+        this.selectedImage = selectedImage;
+    }
 
     public DashboardButton() {
     }
@@ -25,8 +35,17 @@ public class DashboardButton {
                 "btn=" + btn +
                 ", view=" + view +
                 ", unselectedImage=" + unselectedImage +
+                ", imageLayoutY=" + imageLayoutY +
                 ", selectedImage=" + selectedImage +
                 '}';
+    }
+
+    public int getImageLayoutY() {
+        return imageLayoutY;
+    }
+
+    public void setImageLayoutY(int imageLayoutY) {
+        this.imageLayoutY = imageLayoutY;
     }
 
     public JFXButton getBtn() {
@@ -60,6 +79,4 @@ public class DashboardButton {
     public void setSelectedImage(Image selectedImage) {
         this.selectedImage = selectedImage;
     }
-
-    private Image selectedImage;
 }
