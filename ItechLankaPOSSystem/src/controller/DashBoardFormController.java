@@ -149,6 +149,7 @@ public class DashBoardFormController {
                     button.getView().setFitHeight(30);
                     button.getView().setFitWidth(30);
                     button.getView().setImage(button.getUnselectedImage());
+
                 }
             }
             if (lastClicked != null) {
