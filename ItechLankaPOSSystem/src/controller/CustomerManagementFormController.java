@@ -91,7 +91,7 @@ public class CustomerManagementFormController {
         RegexMap.put(txtMobile,Pattern.compile("^[+94]?[0-9]{10,11}$"));
         RegexMap.put(txtAddress,Pattern.compile("^[A-z0-9 ,/]+$"));
 
-        txtId.requestFocus();
+        txtName.requestFocus();
 
         tblCustomer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -133,12 +133,13 @@ public class CustomerManagementFormController {
         txtAddress.clear();
         btnAddCustomer.setText("Add Client");
         tblCustomer.getSelectionModel().clearSelection();
-
+        txtName.requestFocus();
         resetFields(txtId);
         resetFields(txtName);
         resetFields(txtNIC);
         resetFields(txtMobile);
         resetFields(txtAddress);
+
 
         txtId.setEditable(true);
         btnAddCustomer.setDisable(true);
