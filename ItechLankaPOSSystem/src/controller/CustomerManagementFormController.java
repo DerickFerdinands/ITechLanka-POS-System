@@ -1,6 +1,7 @@
 package controller;
 
 import Model.Customer;
+import Util.GenerateAutoId;
 import Util.NotificationUtil;
 import Util.ValidationUtil;
 import View.TM.CustomerTM;
@@ -46,9 +47,11 @@ public class CustomerManagementFormController {
 
     LinkedHashMap<JFXTextField, Pattern> RegexMap = new LinkedHashMap<>();
 
+
     public void frequentFunctions() {
         clearAllFields();
         loadALlCustomers();
+
     }
 
     public void addCustomerOnAction(ActionEvent actionEvent) {
@@ -75,6 +78,7 @@ public class CustomerManagementFormController {
     }
 
     public void initialize() {
+        setAutoId();
         btnAddCustomer.setDisable(true);
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -100,6 +104,10 @@ public class CustomerManagementFormController {
             }
 
         });
+    }
+
+    private void setAutoId() {
+        txtId.setText(GenerateAutoId.autoId("SELECT Id FROM Customer ORDER BY Id DESC LIMIT 1", 1, 4, "C00-01"));
     }
 
     private void setUpdateFields(CustomerTM tm) {
@@ -143,7 +151,7 @@ public class CustomerManagementFormController {
 
         txtId.setEditable(true);
         btnAddCustomer.setDisable(true);
-
+        setAutoId();
     }
 
     public void resetFields(JFXTextField field){
@@ -191,6 +199,7 @@ public class CustomerManagementFormController {
                     if (CustomerCRUDController.deleteCustomer(id)) {
                         NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Deleted!", NotificationType.SUCCESS, Duration.millis(3000));
                         frequentFunctions();
+                        setAutoId();
                     }
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();

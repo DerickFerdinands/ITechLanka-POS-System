@@ -193,7 +193,7 @@ public class DashBoardFormController {
     }
 
     public void HidePaneUI(MouseEvent mouseEvent) {
-       /* Object o = mouseEvent.getSource();
+      /*  Object o = mouseEvent.getSource();
         if (o instanceof AnchorPane) {
             AnchorPane pane = (AnchorPane) o;
             pane.getChildren().remove(image);
