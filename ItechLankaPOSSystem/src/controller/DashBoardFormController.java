@@ -180,7 +180,7 @@ public class DashBoardFormController {
 
     public void ShowPaneUI(MouseEvent mouseEvent) {
 
-        image.setFitWidth(353);
+        /*image.setFitWidth(353);
         image.setFitHeight(213);
         image.setId("AddedImg");
         image.setOpacity(0.9);
@@ -189,15 +189,15 @@ public class DashBoardFormController {
             AnchorPane pane = (AnchorPane) o;
             pane.getChildren().add(image);
             new Pulse(image).play();
-        }
+        }*/
     }
 
     public void HidePaneUI(MouseEvent mouseEvent) {
-        Object o = mouseEvent.getSource();
+       /* Object o = mouseEvent.getSource();
         if (o instanceof AnchorPane) {
             AnchorPane pane = (AnchorPane) o;
             pane.getChildren().remove(image);
-        }
+        }*/
 
     }
 
@@ -211,5 +211,9 @@ public class DashBoardFormController {
         MainContext.getChildren().clear();
         MainContext.getChildren().add(FXMLLoader.load(getClass().getResource("/View/DashBoardForm.fxml")));
 
+    }
+
+    public void imagesPulseOnAction(MouseEvent mouseEvent) {
+        new Pulse(image).play();
     }
 }

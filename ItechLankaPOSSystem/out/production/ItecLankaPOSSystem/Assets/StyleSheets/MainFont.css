@@ -26,3 +26,7 @@
     -fx-font-family: 'SansSerif';
     -fx-font-size: 13;
 }
+
+#imgS:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}
