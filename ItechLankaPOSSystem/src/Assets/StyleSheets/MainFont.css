@@ -29,4 +29,21 @@
 
 #imgS:hover{
     -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}#imgS1:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}#imgS2:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}#imgS3:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}
+
+#lblDash1:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}
+#lblDash2:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}#lblDash3:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}#lblDash4:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
 }

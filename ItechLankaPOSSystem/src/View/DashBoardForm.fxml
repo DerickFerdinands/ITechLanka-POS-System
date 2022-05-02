@@ -13,6 +13,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -241,7 +243,7 @@
                   <Image url="@../Assets/output-onlinepngtools%20(1).png" />
                </image>
             </ImageView>
-            <BarChart layoutX="710.0" layoutY="151.0" prefHeight="403.0" prefWidth="807.0">
+            <BarChart fx:id="barChartPerformance" horizontalGridLinesVisible="false" layoutX="682.0" layoutY="155.0" prefHeight="363.0" prefWidth="859.0">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>
@@ -284,63 +286,80 @@
                   <Font size="1.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="56.0" layoutY="596.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane layoutX="50.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
-                  <ImageView id="imgS" fitHeight="213.0" fitWidth="353.0" layoutY="1.0" onMouseEntered="#imagesPulseOnAction">
+                  <ImageView id="imgS" fx:id="imgPules1" fitHeight="213.0" fitWidth="353.0" onMouseEntered="#imagesPulseOnAction">
                      <image>
                         <Image url="@../Assets/Screenshot%202022-04-27%20162559.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="61.0" layoutY="91.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="CUSTOMER REVIEWS" textFill="WHITE">
+                  <Label id="lbl1" fx:id="lblDash1" layoutX="64.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="CUSTOMER REVIEWS" textFill="WHITE">
                      <font>
                         <Font size="1.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="436.0" layoutY="596.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane layoutX="429.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
-                  <ImageView id="imgS" fitHeight="213.0" fitWidth="353.0">
+                  <ImageView id="imgS1" fx:id="imgPules2" fitHeight="213.0" fitWidth="353.0" layoutY="-2.0" onMouseEntered="#imagesPulseOnAction">
                      <image>
                         <Image url="@../Assets/Screenshot%202022-04-27%20170141.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="81.0" layoutY="95.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="All Our Products" textFill="WHITE">
+                  <Label id="lbl2" fx:id="lblDash2" layoutX="81.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="All Our Products" textFill="WHITE">
                      <font>
                         <Font size="1.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="811.0" layoutY="592.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane layoutX="810.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
-                  <ImageView id="imgS" fitHeight="213.0" fitWidth="353.0" layoutX="2.0">
+                  <ImageView id="imgS2" fx:id="imgPules3" fitHeight="213.0" fitWidth="353.0" onMouseEntered="#imagesPulseOnAction">
                      <image>
                         <Image url="@../Assets/Screenshot%202022-04-27%20170400.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="118.0" layoutY="89.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="Categories" textFill="WHITE">
+                  <Label id="lbl3" fx:id="lblDash3" layoutX="116.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="Categories">
                      <font>
                         <Font size="1.0" />
                      </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#48595e" />
+                              <Stop color="#48595e" offset="0.007246376811594203" />
+                              <Stop color="#6e88a4" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1191.0" layoutY="592.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane layoutX="1191.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="346.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
-                  <ImageView id="imgS" fitHeight="213.0" fitWidth="353.0" layoutX="1.0" layoutY="1.0">
+                  <ImageView id="imgS3" fx:id="imgPules4" fitHeight="213.0" fitWidth="353.0" layoutY="-3.0" onMouseEntered="#imagesPulseOnAction">
                      <image>
                         <Image url="@../Assets/Screenshot%202022-04-27%20170549.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="145.0" layoutY="88.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="Extras" textFill="WHITE">
+                  <Label id="lbl4" fx:id="lblDash4" layoutX="144.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="Extras">
                      <font>
                         <Font size="1.0" />
                      </font>
+                     <textFill>
+                        <LinearGradient endX="0.854368932038835" endY="0.16990291262135926" startY="0.32038834951456313">
+                           <stops>
+                              <Stop color="WHITE" />
+                              <Stop color="#b9b9b9" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Label>
                </children>
             </AnchorPane>
-            <ImageView layoutX="766.0" layoutY="120.0">
+            <ImageView layoutX="729.0" layoutY="120.0">
                <image>
                   <Image url="@../Assets/output-onlinepngtools%20(4).png" />
                </image>
