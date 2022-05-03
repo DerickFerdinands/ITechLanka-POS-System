@@ -55,10 +55,10 @@ public class CustomerManagementFormController {
     }
 
     public void addCustomerOnAction(ActionEvent actionEvent) {
-       addOrUpdateCustomer();
+        addOrUpdateCustomer();
     }
 
-    public void addOrUpdateCustomer(){
+    public void addOrUpdateCustomer() {
         try {
             if (btnAddCustomer.getText().equals("Add Client")) {
                 if (CustomerCRUDController.saveCustomer(new Customer(txtId.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText()))) {
@@ -89,11 +89,11 @@ public class CustomerManagementFormController {
 
         loadALlCustomers();
 
-        RegexMap.put(txtId,Pattern.compile("^(C00-)[0-9]{1,10}$"));
-        RegexMap.put(txtName,Pattern.compile("^[A-z ]+$"));
-        RegexMap.put(txtNIC,Pattern.compile("^[0-9]{10,15}(V)?$"));
-        RegexMap.put(txtMobile,Pattern.compile("^[+94]?[0-9]{10,11}$"));
-        RegexMap.put(txtAddress,Pattern.compile("^[A-z0-9 ,/]+$"));
+        RegexMap.put(txtId, Pattern.compile("^(C00-)[0-9]{1,10}$"));
+        RegexMap.put(txtName, Pattern.compile("^[A-z ]+$"));
+        RegexMap.put(txtNIC, Pattern.compile("^[0-9]{10,15}(V)?$"));
+        RegexMap.put(txtMobile, Pattern.compile("^[+94]?[0-9]{10,11}$"));
+        RegexMap.put(txtAddress, Pattern.compile("^[A-z0-9 ,/]+$"));
 
         txtName.requestFocus();
 
@@ -154,8 +154,8 @@ public class CustomerManagementFormController {
         setAutoId();
     }
 
-    public void resetFields(JFXTextField field){
-        field.getParent().setStyle("-fx-border-color :   #EDEDF0;"+"-fx-border-width:1.5;"+"-fx-border-radius:  5;"+"-fx-background-radius:  5;");
+    public void resetFields(JFXTextField field) {
+        field.getParent().setStyle("-fx-border-color :   #EDEDF0;" + "-fx-border-width:1.5;" + "-fx-border-radius:  5;" + "-fx-background-radius:  5;");
 
     }
 
@@ -211,15 +211,15 @@ public class CustomerManagementFormController {
     }
 
     public void validateFields(KeyEvent keyEvent) {
-       Object o =  ValidationUtil.Validate(RegexMap,btnAddCustomer);
+        Object o = ValidationUtil.Validate(RegexMap, btnAddCustomer);
 
-       if(keyEvent.getCode().equals(KeyCode.ENTER)) {
-           if (o instanceof JFXTextField) {
-               JFXTextField field = (JFXTextField) o;
-               field.requestFocus();
-           } else {
-               addOrUpdateCustomer();
-           }
-       }
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            if (o instanceof JFXTextField) {
+                JFXTextField field = (JFXTextField) o;
+                field.requestFocus();
+            } else {
+                addOrUpdateCustomer();
+            }
+        }
     }
 }
