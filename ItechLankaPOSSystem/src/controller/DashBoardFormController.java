@@ -160,27 +160,20 @@ public class DashBoardFormController {
             JFXButton btn = (JFXButton) o;
             for (DashboardButton button : btnList) {
                 if (button.getBtn() == btn) {
-                    button.getBtn().setStyle("-fx-font-size: 15;");
                     button.getBtn().setTextFill(Color.color(0.20, 0.18, 0.29));
-                    button.getView().setFitHeight(35);
-                    button.getView().setFitWidth(35);
-                    button.getView().setLayoutY(button.getImageLayoutY() - 5);
-
-                } else {
-                    button.getBtn().setStyle("-fx-font-size: 13;");
-                    button.getBtn().setTextFill(Color.color(0.52, 0.55, 0.58));
-                    button.getView().setFitHeight(30);
-                    button.getView().setFitWidth(30);
-                    button.getView().setImage(button.getUnselectedImage());
-
+                    ScaleTransition scaleT = new ScaleTransition(Duration.millis(100), button.getBtn());
+                    scaleT.setToX(1.15);
+                    scaleT.setToY(1.15);
+                    scaleT.play();
                 }
             }
-            if (lastClicked != null) {
-                lastClicked.getBtn().setTextFill(Color.color(0.20, 0.18, 0.29));
-                lastClicked.getView().setImage(lastClicked.getSelectedImage());
-            }
+        }
+        if (lastClicked != null) {
+            lastClicked.getBtn().setTextFill(Color.color(0.20, 0.18, 0.29));
+            lastClicked.getView().setImage(lastClicked.getSelectedImage());
         }
     }
+
 
     public void clearButtonUI(MouseEvent mouseEvent) {
         Object o = mouseEvent.getSource();
@@ -189,8 +182,12 @@ public class DashBoardFormController {
             for (DashboardButton button : btnList) {
                 button.getBtn().setStyle("-fx-font-size: 13;");
                 button.getBtn().setTextFill(Color.color(0.52, 0.55, 0.58));
-                button.getView().setFitHeight(30);
-                button.getView().setFitWidth(30);
+//                button.getView().setFitHeight(30);
+//                button.getView().setFitWidth(30);
+                ScaleTransition scaleT = new ScaleTransition(Duration.millis(100), btn);
+                scaleT.setToX(1);
+                scaleT.setToY(1);
+                scaleT.play();
                 button.getView().setImage(button.getUnselectedImage());
                 button.getView().setLayoutY(button.getImageLayoutY());
             }
@@ -203,8 +200,8 @@ public class DashBoardFormController {
 
     public void customizePane(AnchorPane pane) {
         ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), pane);
-        scaleT.setToX(1.1);
-        scaleT.setToY(1.1);
+        scaleT.setToX(1.05);
+        scaleT.setToY(1.05);
         scaleT.play();
 
         DropShadow glow = new DropShadow();
@@ -215,14 +212,14 @@ public class DashBoardFormController {
         pane.setEffect(glow);
     }
 
-    public void ResetPane(AnchorPane pane){
+    public void ResetPane(AnchorPane pane) {
 
-            ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), pane);
-            scaleT.setToX(1);
-            scaleT.setToY(1);
-            scaleT.play();
+        ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), pane);
+        scaleT.setToX(1);
+        scaleT.setToY(1);
+        scaleT.play();
 
-            pane.setEffect(null);
+        pane.setEffect(null);
 
 
     }
