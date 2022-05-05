@@ -20,94 +20,6 @@
 
 <AnchorPane fx:id="MainContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="930.0" prefWidth="1800.0" style="-fx-background-color: #FBFDFF;" stylesheets="@../Assets/StyleSheets/MainFont.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
    <children>
-      <ImageView fx:id="imgDash" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="95.0">
-         <image>
-            <Image url="@../Assets/image%20(4).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgCus" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="172.0">
-         <image>
-            <Image url="@../Assets/image%20(26).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgQuote" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="243.0">
-         <image>
-            <Image url="@../Assets/image%20(27).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgOrder" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="316.0">
-         <image>
-            <Image url="@../Assets/image%20(28).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgPackage" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="389.0">
-         <image>
-            <Image url="@../Assets/image%20(29).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgItem" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="468.0">
-         <image>
-            <Image url="@../Assets/image%20(30).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgDirector" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="540.0">
-         <image>
-            <Image url="@../Assets/image%20(31).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgSupply" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="611.0">
-         <image>
-            <Image url="@../Assets/image%20(32).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgReport" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="686.0">
-         <image>
-            <Image url="@../Assets/image%20(33).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgProfit" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="756.0">
-         <image>
-            <Image url="@../Assets/image%20(34).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="imgSettings" fitHeight="30.0" fitWidth="30.0" layoutX="86.0" layoutY="828.0">
-         <image>
-            <Image url="@../Assets/image%20(35).png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
       <JFXTextField fx:id="txtSearch" focusColor="#405aa800" layoutX="266.0" layoutY="12.0" prefHeight="41.0" prefWidth="594.0" promptText="Type To Search..." style="-fx-background-radius: 10; -fx-border-radius: 5;" unFocusColor="#4d4d4d00" />
       <ImageView fitHeight="30.0" fitWidth="138.0" layoutX="28.0" layoutY="21.0" opacity="0.73">
          <image>
@@ -119,93 +31,203 @@
             <Image url="@../Assets/image%20(36).png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnItem" alignment="BOTTOM_CENTER" layoutY="450.0" onAction="#goToItemsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Items" textFill="#848c94">
+      <JFXButton fx:id="btnItem" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="450.0" onAction="#goToItemsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Items" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgItem" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(30).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnDashboard" alignment="BOTTOM_CENTER" layoutY="80.0" onAction="#GoToDashboardOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Dashboard" textFill="#332f4b">
+      <JFXButton fx:id="btnDashboard" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="80.0" onAction="#GoToDashboardOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Dashboard" textFill="#332f4b">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgDash" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(4).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnCustomer" alignment="BOTTOM_CENTER" layoutY="154.0" onAction="#GoToCustomersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Customer" textFill="#848c94">
+      <JFXButton fx:id="btnCustomer" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="154.0" onAction="#GoToCustomersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Customer" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgCus" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(26).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnQuote" alignment="BOTTOM_CENTER" layoutY="228.0" onAction="#goToQuotationOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Quotation" textFill="#848c94">
+      <JFXButton fx:id="btnQuote" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="228.0" onAction="#goToQuotationOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Quotation" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgQuote" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(27).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnOrders" alignment="BOTTOM_CENTER" layoutY="302.0" onAction="#goToOrdersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Purchases" textFill="#848c94">
+      <JFXButton fx:id="btnOrders" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="302.0" onAction="#goToOrdersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Purchases" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgOrder" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(28).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnPackages" alignment="BOTTOM_CENTER" layoutY="376.0" onAction="#goToPackagesOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Order History" textFill="#848c94">
+      <JFXButton fx:id="btnPackages" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="376.0" onAction="#goToPackagesOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Order History" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgPackage" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(29).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnDIrector" alignment="BOTTOM_CENTER" layoutY="524.0" onAction="#goToDirectorsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Directors" textFill="#848c94">
+      <JFXButton fx:id="btnDIrector" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="524.0" onAction="#goToDirectorsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Directors" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgDirector" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(31).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnSupplier" alignment="BOTTOM_CENTER" layoutY="597.0" onAction="#goToSuppliersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Suppliers" textFill="#848c94">
+      <JFXButton fx:id="btnSupplier" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="597.0" onAction="#goToSuppliersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Suppliers" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgSupply" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(32).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnReport" alignment="BOTTOM_CENTER" layoutY="670.0" onAction="#goToReportsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Report" textFill="#848c94">
+      <JFXButton fx:id="btnReport" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="670.0" onAction="#goToReportsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Report" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgReport" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(33).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnProfit" alignment="BOTTOM_CENTER" layoutX="1.0" layoutY="743.0" onAction="#goToProfitOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Profit" textFill="#848c94">
+      <JFXButton fx:id="btnProfit" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="1.0" layoutY="743.0" onAction="#goToProfitOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Profit" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgProfit" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(34).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnSettings" alignment="BOTTOM_CENTER" layoutY="816.0" onAction="#goToSettingsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Settings" textFill="#848c94">
+      <JFXButton fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="816.0" onAction="#goToSettingsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Settings" textFill="#848c94">
          <font>
             <Font size="20.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fx:id="imgSettings" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(35).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
       <AnchorPane fx:id="NavigationContext" layoutX="203.0" layoutY="71.0" prefHeight="861.0" prefWidth="1586.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #F3F1FB; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
          <children>
@@ -286,9 +308,9 @@
                   <Font size="1.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="50.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane fx:id="ReviewsPane" layoutX="50.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
-                  <ImageView id="imgS" fx:id="imgPules1" fitHeight="213.0" fitWidth="353.0" onMouseEntered="#imagesPulseOnAction">
+                  <ImageView id="imgS" fx:id="imgPules1" fitHeight="213.0" fitWidth="353.0">
                      <image>
                         <Image url="@../Assets/Screenshot%202022-04-27%20162559.jpg" />
                      </image>
@@ -300,7 +322,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="429.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane fx:id="ProductsPane" layoutX="429.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
                   <ImageView id="imgS1" fx:id="imgPules2" fitHeight="213.0" fitWidth="353.0" layoutY="-2.0" onMouseEntered="#imagesPulseOnAction">
                      <image>
@@ -314,7 +336,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="810.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane fx:id="CategoriesPane" layoutX="810.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
                   <ImageView id="imgS2" fx:id="imgPules3" fitHeight="213.0" fitWidth="353.0" onMouseEntered="#imagesPulseOnAction">
                      <image>
@@ -337,7 +359,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1191.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="346.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane fx:id="ExtrasPane" layoutX="1191.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="346.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
                   <ImageView id="imgS3" fx:id="imgPules4" fitHeight="213.0" fitWidth="353.0" layoutY="-3.0" onMouseEntered="#imagesPulseOnAction">
                      <image>

@@ -5,16 +5,19 @@ import animatefx.animation.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.DBConnection;
+import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -58,6 +61,10 @@ public class DashBoardFormController {
     public Label lblDash3;
     public Label lblDash4;
     public BarChart barChartPerformance;
+    public AnchorPane ReviewsPane;
+    public AnchorPane ProductsPane;
+    public AnchorPane CategoriesPane;
+    public AnchorPane ExtrasPane;
 
     ArrayList<DashboardButton> btnList = new ArrayList<>();
     DashboardButton lastClicked;
@@ -194,25 +201,89 @@ public class DashBoardFormController {
         }
     }
 
+    public void customizePane(AnchorPane pane) {
+        ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), pane);
+        scaleT.setToX(1.1);
+        scaleT.setToY(1.1);
+        scaleT.play();
+
+        DropShadow glow = new DropShadow();
+        glow.setColor(Color.CORNFLOWERBLUE);
+        glow.setWidth(20);
+        glow.setHeight(20);
+        glow.setRadius(20);
+        pane.setEffect(glow);
+    }
+
+    public void ResetPane(AnchorPane pane){
+
+            ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), pane);
+            scaleT.setToX(1);
+            scaleT.setToY(1);
+            scaleT.play();
+
+            pane.setEffect(null);
+
+
+    }
+
     public void ShowPaneUI(MouseEvent mouseEvent) {
-        /*image.setFitWidth(353);
-        image.setFitHeight(213);
-        image.setId("AddedImg");
-        image.setOpacity(0.9);
+
         Object o = mouseEvent.getSource();
+
         if (o instanceof AnchorPane) {
             AnchorPane pane = (AnchorPane) o;
-            pane.getChildren().add(image);
-            new Pulse(image).play();
-        }*/
+
+            switch (pane.getId()) {
+
+                case "ReviewsPane": {
+                    customizePane(ReviewsPane);
+                }
+                break;
+                case "ProductsPane": {
+                    customizePane(ProductsPane);
+                }
+                break;
+                case "CategoriesPane": {
+                    customizePane(CategoriesPane);
+                }
+                break;
+                case "ExtrasPane": {
+                    customizePane(ExtrasPane);
+                }
+                break;
+            }
+
+        }
     }
 
     public void HidePaneUI(MouseEvent mouseEvent) {
-      /*  Object o = mouseEvent.getSource();
+        Object o = mouseEvent.getSource();
+
         if (o instanceof AnchorPane) {
             AnchorPane pane = (AnchorPane) o;
-            pane.getChildren().remove(image);
-        }*/
+
+            switch (pane.getId()) {
+
+                case "ReviewsPane": {
+                    ResetPane(ReviewsPane);
+                }
+                break;
+                case "ProductsPane": {
+                    ResetPane(ProductsPane);
+                }
+                break;
+                case "CategoriesPane": {
+                    ResetPane(CategoriesPane);
+                }
+                break;
+                case "ExtrasPane": {
+                    ResetPane(ExtrasPane);
+                }
+                break;
+            }
+
+        }
 
     }
 
@@ -230,50 +301,50 @@ public class DashBoardFormController {
 
     public void imagesPulseOnAction(MouseEvent mouseEvent) {
 
-
-        Object o = mouseEvent.getSource();
-
-        if (o instanceof ImageView) {
-            ImageView i = (ImageView) o;
-
-
-            if(i.getId().equals("imgS")){
-                new Pulse(imgPules1).play();
-                new Pulse(lblDash1).play();
-
-            }else if(i.getId().equals("imgS1")){
-                new Pulse(imgPules2).play();
-                new Pulse(lblDash2).play();
-
-            }else if(i.getId().equals("imgS2")){
-                new Pulse(imgPules3).play();
-                new Pulse(lblDash3).play();
-
-            }else if(i.getId().equals("imgS3")){
-                new Pulse(imgPules4).play();
-                new Pulse(lblDash4).play();
-
-            }
-
-        }
+//
+//        Object o = mouseEvent.getSource();
+//
+//        if (o instanceof ImageView) {
+//            ImageView i = (ImageView) o;
+//
+//
+//            if(i.getId().equals("imgS")){
+//                new Pulse(imgPules1).play();
+//                new Pulse(lblDash1).play();
+//
+//            }else if(i.getId().equals("imgS1")){
+//                new Pulse(imgPules2).play();
+//                new Pulse(lblDash2).play();
+//
+//            }else if(i.getId().equals("imgS2")){
+//                new Pulse(imgPules3).play();
+//                new Pulse(lblDash3).play();
+//
+//            }else if(i.getId().equals("imgS3")){
+//                new Pulse(imgPules4).play();
+//                new Pulse(lblDash4).play();
+//
+//            }
+//
+//        }
 
     }
 
     public void lblMouseEnteredOnAction(MouseEvent mouseEvent) {
 
-        Object o=mouseEvent.getSource();
+        Object o = mouseEvent.getSource();
 
-        if(o instanceof Label){
-            Label i= (Label) o;
-            if(i.getId().equals("lbl1")){
+        if (o instanceof Label) {
+            Label i = (Label) o;
+            if (i.getId().equals("lbl1")) {
                 imgPules1.setStyle("-fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);");
-            }else if(i.getId().equals("lbl2")){
+            } else if (i.getId().equals("lbl2")) {
                 imgPules2.setStyle("-fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);");
 
-            }else if(i.getId().equals("lbl3")){
+            } else if (i.getId().equals("lbl3")) {
                 imgPules3.setStyle("-fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);");
 
-            }else if(i.getId().equals("lbl4")){
+            } else if (i.getId().equals("lbl4")) {
                 imgPules4.setStyle("-fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);");
 
             }
@@ -283,23 +354,23 @@ public class DashBoardFormController {
     }
 
     public void lblMouseExitedOnAction(MouseEvent mouseEvent) {
-        Object o=mouseEvent.getSource();
+        Object o = mouseEvent.getSource();
 
-        if(o instanceof Label){
-            Label i= (Label) o;
-            if(i.getId().equals("lbl1")){
+        if (o instanceof Label) {
+            Label i = (Label) o;
+            if (i.getId().equals("lbl1")) {
                 imgPules1.setStyle(null);
-            }else if(i.getId().equals("lbl2")){
+            } else if (i.getId().equals("lbl2")) {
                 imgPules2.setStyle(null);
-            }else if(i.getId().equals("lbl3")){
+            } else if (i.getId().equals("lbl3")) {
                 imgPules3.setStyle(null);
-            }else if(i.getId().equals("lbl4")){
+            } else if (i.getId().equals("lbl4")) {
                 imgPules4.setStyle(null);
             }
         }
     }
 
-    private void setBarchart(){
+    private void setBarchart() {
         XYChart.Series series = new XYChart.Series();
         series.setName("Sample Name");
         //populating the series with data
