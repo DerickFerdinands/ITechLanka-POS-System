@@ -32,17 +32,17 @@
       </ImageView>
       <AnchorPane layoutX="68.0" layoutY="188.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtCode" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtCode" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="68.0" layoutY="464.0" prefHeight="52.0" prefWidth="127.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtQty" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtQty" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="68.0" layoutY="557.0" prefHeight="52.0" prefWidth="161.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtBuyingPrice" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtBuyingPrice" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <Label layoutX="71.0" layoutY="164.0" opacity="0.66" text="Item Code" textFill="#263549">
@@ -72,7 +72,7 @@
       </JFXButton>
       <AnchorPane layoutX="258.0" layoutY="557.0" prefHeight="52.0" prefWidth="152.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtSellingPrice" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtSellingPrice" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <Label layoutX="261.0" layoutY="533.0" opacity="0.66" text="Selling Price" textFill="#263549">
@@ -93,7 +93,7 @@
       </TableView>
       <AnchorPane layoutX="474.0" layoutY="76.0" prefHeight="52.0" prefWidth="1067.0" style="-fx-border-color: #58D5E6; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField focusColor="#405aa800" layoutX="53.0" layoutY="7.0" prefHeight="39.0" prefWidth="996.0" promptText="Type To Searcch Items..." stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtSearch" focusColor="#405aa800" layoutX="53.0" layoutY="7.0" onKeyReleased="#searchMatchingItems" prefHeight="39.0" prefWidth="996.0" promptText="Type To Searcch Items..." stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
             <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="12.0" layoutY="10.0">
                <image>
                   <Image url="@../Assets/image%20(36).png" />
@@ -113,7 +113,7 @@
       </Label>
       <AnchorPane layoutX="68.0" layoutY="278.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtName" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtName" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <Label layoutX="71.0" layoutY="254.0" opacity="0.66" text="Item Name" textFill="#263549">
@@ -135,7 +135,7 @@
       </AnchorPane>
       <AnchorPane layoutX="68.0" layoutY="645.0" prefHeight="122.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextArea fx:id="txtrDetails" focusColor="#405aa800" layoutX="-3.0" layoutY="-3.0" prefHeight="120.0" prefWidth="362.0" unFocusColor="#4d4d4d00" />
+            <JFXTextArea fx:id="txtrDetails" focusColor="#405aa800" layoutX="1.0" layoutY="-2.0" onKeyReleased="#validateFields" prefHeight="120.0" prefWidth="362.0" promptText="  Optional" unFocusColor="#4d4d4d00" />
          </children>
       </AnchorPane>
       <Label layoutX="71.0" layoutY="623.0" opacity="0.66" text="Details" textFill="#263549">

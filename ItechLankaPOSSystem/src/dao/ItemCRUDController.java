@@ -1,5 +1,6 @@
 package dao;
 
+import Model.Customer;
 import Model.Item;
 import Util.CrudUtil;
 
@@ -28,5 +29,15 @@ public class ItemCRUDController {
 
     public static boolean updateItem(Item item) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("UPDATE Item SET name=?,category=?,buyingPrice=?,sellingPrice=?,qty=?,details=?,imageLocation=? WHERE code =?", item.getName(), item.getCategory(), item.getBuyingPrice(), item.getSellingPrice(), item.getQty(), item.getDetail(), item.getImageLocation(), item.getCode());
+    }
+
+    public static ArrayList<Item> getMatching(String search) throws SQLException, ClassNotFoundException {
+        ResultSet result = CrudUtil.execute("SELECT * from Item where code LIKE ? OR name LIKE ? OR category LIKE ? OR buyingPrice LIKE ? OR sellingPrice LIKE ? OR qty LIKE ? OR details LIKE ? OR imageLocation LIKE ?", search,search,search,search,search,search,search,search);
+        ArrayList<Item> list = new ArrayList<>();
+
+        while (result.next()) {
+            list.add(new Item(result.getString(1), result.getString(2), result.getString(3), result.getDouble(4), result.getDouble(5), result.getDouble(6), result.getString(7), result.getString(8)));
+        }
+        return list;
     }
 }

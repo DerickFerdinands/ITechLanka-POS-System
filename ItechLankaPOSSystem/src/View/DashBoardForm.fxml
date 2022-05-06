@@ -31,7 +31,7 @@
             <Image url="@../Assets/image%20(36).png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnItem" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="450.0" onAction="#goToItemsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Items" textFill="#848c94">
+      <JFXButton fx:id="btnItem" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="450.0" onAction="#goToItemsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Items" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -49,7 +49,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnDashboard" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="80.0" onAction="#GoToDashboardOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Dashboard" textFill="#332f4b">
+      <JFXButton fx:id="btnDashboard" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="80.0" onAction="#GoToDashboardOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Dashboard" textFill="#332f4b">
          <font>
             <Font size="15.0" />
          </font>
@@ -67,7 +67,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnCustomer" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="154.0" onAction="#GoToCustomersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Customer" textFill="#848c94">
+      <JFXButton fx:id="btnCustomer" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="154.0" onAction="#GoToCustomersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Customer" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -85,7 +85,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnQuote" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="228.0" onAction="#goToQuotationOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Quotation" textFill="#848c94">
+      <JFXButton fx:id="btnQuote" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="228.0" onAction="#goToQuotationOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Quotation" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -103,7 +103,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnOrders" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="302.0" onAction="#goToOrdersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Purchases" textFill="#848c94">
+      <JFXButton fx:id="btnOrders" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="302.0" onAction="#goToOrdersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Purchases" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -121,7 +121,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnPackages" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="376.0" onAction="#goToPackagesOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Order History" textFill="#848c94">
+      <JFXButton fx:id="btnPackages" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="376.0" onAction="#goToPackagesOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Order History" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -139,7 +139,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnDIrector" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="524.0" onAction="#goToDirectorsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Directors" textFill="#848c94">
+      <JFXButton fx:id="btnDIrector" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="524.0" onAction="#goToDirectorsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Directors" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -157,7 +157,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnSupplier" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="597.0" onAction="#goToSuppliersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Suppliers" textFill="#848c94">
+      <JFXButton fx:id="btnSupplier" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="597.0" onAction="#goToSuppliersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Suppliers" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -175,7 +175,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnReport" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="670.0" onAction="#goToReportsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Report" textFill="#848c94">
+      <JFXButton fx:id="btnReport" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="670.0" onAction="#goToReportsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Report" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -193,7 +193,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnProfit" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="1.0" layoutY="743.0" onAction="#goToProfitOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Profit" textFill="#848c94">
+      <JFXButton fx:id="btnProfit" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="743.0" onAction="#goToProfitOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Profit" textFill="#848c94">
          <font>
             <Font size="15.0" />
          </font>
@@ -211,7 +211,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutY="816.0" onAction="#goToSettingsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="200.0" ripplerFill="BLACK" text="Settings" textFill="#848c94">
+      <JFXButton fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="816.0" onAction="#goToSettingsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Settings" textFill="#848c94">
          <font>
             <Font size="20.0" />
          </font>
@@ -265,7 +265,7 @@
                   <Image url="@../Assets/output-onlinepngtools%20(1).png" />
                </image>
             </ImageView>
-            <BarChart fx:id="barChartPerformance" horizontalGridLinesVisible="false" layoutX="682.0" layoutY="155.0" prefHeight="363.0" prefWidth="859.0">
+            <BarChart fx:id="barChartPerformance" horizontalGridLinesVisible="false" layoutX="682.0" layoutY="155.0" prefHeight="363.0" prefWidth="859.0" stylesheets="@../Assets/StyleSheets/BarChart.css">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>
@@ -414,5 +414,16 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <Line fx:id="l1" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="102.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
+      <Line fx:id="l2" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="175.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l3" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="249.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l4" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="324.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l5" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="398.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l6" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="474.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l7" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="548.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l8" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="619.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l9" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="691.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l10" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="762.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l11" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="837.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
    </children>
 </AnchorPane>

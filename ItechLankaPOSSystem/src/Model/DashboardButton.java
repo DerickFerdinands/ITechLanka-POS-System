@@ -3,6 +3,7 @@ package Model;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Line;
 
 public class DashboardButton {
     private JFXButton btn;
@@ -10,6 +11,24 @@ public class DashboardButton {
     private Image unselectedImage;
     private int imageLayoutY;
     private Image selectedImage;
+    private Line line;
+
+    public Line getLine() {
+        return line;
+    }
+
+    public void setLine(Line line) {
+        this.line = line;
+    }
+
+    public DashboardButton(JFXButton btn, ImageView view, Image unselectedImage, int imageLayoutY, Image selectedImage, Line line) {
+        this.btn = btn;
+        this.view = view;
+        this.unselectedImage = unselectedImage;
+        this.imageLayoutY = imageLayoutY;
+        this.selectedImage = selectedImage;
+        this.line = line;
+    }
 
     public DashboardButton(JFXButton btn, ImageView view, Image unselectedImage, int imageLayoutY, Image selectedImage) {
         this.btn = btn;
