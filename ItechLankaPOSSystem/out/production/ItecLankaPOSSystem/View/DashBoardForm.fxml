@@ -322,7 +322,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ProductsPane" layoutX="429.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+            <AnchorPane fx:id="ProductsPane" layoutX="429.0" layoutY="585.0" onMouseClicked="#GoToAllProductsOnAction" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
                   <ImageView id="imgS1" fx:id="imgPules2" fitHeight="213.0" fitWidth="353.0" layoutY="-2.0" onMouseEntered="#imagesPulseOnAction">
                      <image>

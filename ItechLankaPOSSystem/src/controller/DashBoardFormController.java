@@ -412,4 +412,8 @@ public class DashBoardFormController {
 //        n.setStyle("-fx-bar-fill: orange");
 //        barChartPerformance.setStyle(".default-color0.chart-bar  -fx-bar-fill: Green ");
     }
+
+    public void GoToAllProductsOnAction(MouseEvent mouseEvent) throws IOException {
+        setUI("ItemViewForm");
+    }
 }
