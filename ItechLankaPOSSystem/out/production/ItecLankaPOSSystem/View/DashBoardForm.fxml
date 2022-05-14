@@ -321,6 +321,9 @@
                      </font>
                   </Label>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </AnchorPane>
             <AnchorPane fx:id="ProductsPane" layoutX="429.0" layoutY="585.0" onMouseClicked="#GoToAllProductsOnAction" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
@@ -335,6 +338,9 @@
                      </font>
                   </Label>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </AnchorPane>
             <AnchorPane fx:id="CategoriesPane" layoutX="810.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
@@ -358,6 +364,9 @@
                      </textFill>
                   </Label>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </AnchorPane>
             <AnchorPane fx:id="ExtrasPane" layoutX="1191.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="346.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
                <children>
@@ -380,6 +389,9 @@
                      </textFill>
                   </Label>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </AnchorPane>
             <ImageView layoutX="729.0" layoutY="120.0">
                <image>

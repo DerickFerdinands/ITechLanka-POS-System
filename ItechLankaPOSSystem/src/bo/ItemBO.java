@@ -13,10 +13,9 @@ public class ItemBO {
     public void SetItemView(AnchorPane pane) throws SQLException, ClassNotFoundException {
         ArrayList<Item> ItemList = ItemCRUDController.getAllItems();
         ArrayList<Double> LayoutXValues = new ArrayList<>();
-        ArrayList<Double> LayoutYValues = new ArrayList<>();
+
         double layoutX = 0;
         double layoutY = 10;
-//        LayoutYValues.add(layoutY);
         for (Item i : ItemList) {
             System.out.println(i);
             if (LayoutXValues.size() == 0) {

@@ -89,17 +89,17 @@ public class DashBoardFormController {
         new FadeIn(MainContext).setSpeed(10).play();
         new FadeIn(NavigationContext).setSpeed(5).play();
 
-        btnList.add(new DashboardButton(btnDashboard, imgDash, new Image("/Assets/image (25).png"), 95, new Image("/Assets/image (4).png"),l1));
-        btnList.add(new DashboardButton(btnCustomer, imgCus, new Image("/Assets/image (26).png"), 172, new Image("/Assets/image (6).png"),l2));
-        btnList.add(new DashboardButton(btnQuote, imgQuote, new Image("/Assets/image (27).png"), 243, new Image("/Assets/image (7).png"),l3));
-        btnList.add(new DashboardButton(btnOrders, imgOrder, new Image("/Assets/image (28).png"), 316, new Image("/Assets/image (10).png"),l4));
-        btnList.add(new DashboardButton(btnPackages, imgPackage, new Image("/Assets/image (29).png"), 389, new Image("/Assets/image (11).png"),l5));
-        btnList.add(new DashboardButton(btnItem, imgItem, new Image("/Assets/image (30).png"), 468, new Image("/Assets/image (14).png"),l6));
-        btnList.add(new DashboardButton(btnDIrector, imgDirector, new Image("/Assets/image (31).png"), 540, new Image("/Assets/image (15).png"),l7));
-        btnList.add(new DashboardButton(btnSupplier, imgSupply, new Image("/Assets/image (32).png"), 611, new Image("/Assets/image (18).png"),l8));
-        btnList.add(new DashboardButton(btnReport, imgReport, new Image("/Assets/image (33).png"), 686, new Image("/Assets/image (19).png"),l9));
-        btnList.add(new DashboardButton(btnProfit, imgProfit, new Image("/Assets/image (34).png"), 756, new Image("/Assets/image (22).png"),l10));
-        btnList.add(new DashboardButton(btnSettings, imgSettings, new Image("/Assets/image (35).png"), 828, new Image("/Assets/image (23).png"),l11));
+        btnList.add(new DashboardButton(btnDashboard, imgDash, new Image("/Assets/image (25).png"), 95, new Image("/Assets/image (4).png"), l1));
+        btnList.add(new DashboardButton(btnCustomer, imgCus, new Image("/Assets/image (26).png"), 172, new Image("/Assets/image (6).png"), l2));
+        btnList.add(new DashboardButton(btnQuote, imgQuote, new Image("/Assets/image (27).png"), 243, new Image("/Assets/image (7).png"), l3));
+        btnList.add(new DashboardButton(btnOrders, imgOrder, new Image("/Assets/image (28).png"), 316, new Image("/Assets/image (10).png"), l4));
+        btnList.add(new DashboardButton(btnPackages, imgPackage, new Image("/Assets/image (29).png"), 389, new Image("/Assets/image (11).png"), l5));
+        btnList.add(new DashboardButton(btnItem, imgItem, new Image("/Assets/image (30).png"), 468, new Image("/Assets/image (14).png"), l6));
+        btnList.add(new DashboardButton(btnDIrector, imgDirector, new Image("/Assets/image (31).png"), 540, new Image("/Assets/image (15).png"), l7));
+        btnList.add(new DashboardButton(btnSupplier, imgSupply, new Image("/Assets/image (32).png"), 611, new Image("/Assets/image (18).png"), l8));
+        btnList.add(new DashboardButton(btnReport, imgReport, new Image("/Assets/image (33).png"), 686, new Image("/Assets/image (19).png"), l9));
+        btnList.add(new DashboardButton(btnProfit, imgProfit, new Image("/Assets/image (34).png"), 756, new Image("/Assets/image (22).png"), l10));
+        btnList.add(new DashboardButton(btnSettings, imgSettings, new Image("/Assets/image (35).png"), 828, new Image("/Assets/image (23).png"), l11));
         lastClicked = btnList.get(0);
 
         barChartPerformance.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
@@ -222,7 +222,7 @@ public class DashBoardFormController {
         scaleT.play();
 
         DropShadow glow = new DropShadow();
-        glow.setColor(Color.CORNFLOWERBLUE);
+        glow.setColor(Color.DARKGRAY);
         glow.setWidth(20);
         glow.setHeight(20);
         glow.setRadius(20);
@@ -247,26 +247,7 @@ public class DashBoardFormController {
 
         if (o instanceof AnchorPane) {
             AnchorPane pane = (AnchorPane) o;
-
-            switch (pane.getId()) {
-
-                case "ReviewsPane": {
-                    customizePane(ReviewsPane);
-                }
-                break;
-                case "ProductsPane": {
-                    customizePane(ProductsPane);
-                }
-                break;
-                case "CategoriesPane": {
-                    customizePane(CategoriesPane);
-                }
-                break;
-                case "ExtrasPane": {
-                    customizePane(ExtrasPane);
-                }
-                break;
-            }
+            customizePane(pane);
 
         }
     }
@@ -276,27 +257,7 @@ public class DashBoardFormController {
 
         if (o instanceof AnchorPane) {
             AnchorPane pane = (AnchorPane) o;
-
-            switch (pane.getId()) {
-
-                case "ReviewsPane": {
-                    ResetPane(ReviewsPane);
-                }
-                break;
-                case "ProductsPane": {
-                    ResetPane(ProductsPane);
-                }
-                break;
-                case "CategoriesPane": {
-                    ResetPane(CategoriesPane);
-                }
-                break;
-                case "ExtrasPane": {
-                    ResetPane(ExtrasPane);
-                }
-                break;
-            }
-
+            ResetPane(pane);
         }
 
     }
@@ -402,15 +363,7 @@ public class DashBoardFormController {
         series.getData().add(new XYChart.Data("December", 25));
 
         barChartPerformance.getData().add(series);
-//        Node n = barChartPerformance.lookup(".default-color0.chart-bar");
-//        n.setStyle("-fx-bar-fill: Green");
-//        n = barChartPerformance.lookup(".data1.chart-bar");
-//        n.setStyle("-fx-bar-fill: blue");
-//        n = barChartPerformance.lookup(".data2.chart-bar");
-//        n.setStyle("-fx-bar-fill: green");
-//        n = barChartPerformance.lookup(".data3.chart-bar");
-//        n.setStyle("-fx-bar-fill: orange");
-//        barChartPerformance.setStyle(".default-color0.chart-bar  -fx-bar-fill: Green ");
+
     }
 
     public void GoToAllProductsOnAction(MouseEvent mouseEvent) throws IOException {
