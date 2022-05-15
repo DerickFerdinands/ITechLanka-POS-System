@@ -1,22 +1,19 @@
 package controller;
 
-import Model.Customer;
 import Model.Item;
 import Util.NotificationUtil;
 import Util.ValidationUtil;
-import View.TM.CustomerTM;
 import View.TM.ItemTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import dao.CustomerCRUDController;
-import dao.ItemCRUDController;
+import dao.Custom.ItemDAO;
+import dao.Custom.impl.ItemCRUDController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
@@ -30,12 +27,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
-import sun.net.www.content.image.png;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 
 import java.io.File;
-import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -65,6 +60,8 @@ public class ItemManagementFormController {
     public JFXTextField txtSearch;
     private File file;
 
+    private final ItemDAO ItemCrudOps = new ItemCRUDController();
+
     public void ResetFormOnAction(ActionEvent actionEvent) {
         resetForm();
     }
@@ -83,7 +80,7 @@ public class ItemManagementFormController {
         txtName.requestFocus();
         btnAddItem.setText("Add Item");
 
-        resetFields(txtCode, txtName, cmbCategory, imgSelectedImage,txtQty,txtBuyingPrice,txtSellingPrice);
+        resetFields(txtCode, txtName, cmbCategory, imgSelectedImage, txtQty, txtBuyingPrice, txtSellingPrice);
     }
 
     public void OpenFileSelector(MouseEvent mouseEvent) {
@@ -158,7 +155,7 @@ public class ItemManagementFormController {
 
     private void loadAllItems() {
         try {
-            ArrayList<Item> itemList = ItemCRUDController.getAllItems();
+            ArrayList<Item> itemList = ItemCrudOps.getAll();
             ObservableList<ItemTM> obList = FXCollections.observableArrayList();
 
             for (Item item : itemList) {
@@ -181,7 +178,7 @@ public class ItemManagementFormController {
             ButtonType buttonType = alert.getResult();
             if (buttonType.equals(ButtonType.YES)) {
                 try {
-                    if (ItemCRUDController.deleteItem(id)) {
+                    if (ItemCrudOps.delete(id)) {
                         NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Deleted!", NotificationType.SUCCESS, Duration.millis(3000));
                         frequentFunctions();
                         setAutoId();
@@ -232,12 +229,12 @@ public class ItemManagementFormController {
                 }
             } else {
                 if (btnAddItem.getText().equals("Add Item")) {
-                    if (ItemCRUDController.saveItem(new Item(txtCode.getText(), txtName.getText(), String.valueOf(cmbCategory.getValue()), Double.valueOf(txtBuyingPrice.getText()), Double.valueOf(txtSellingPrice.getText()), Double.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
+                    if (ItemCrudOps.save(new Item(txtCode.getText(), txtName.getText(), String.valueOf(cmbCategory.getValue()), Double.valueOf(txtBuyingPrice.getText()), Double.valueOf(txtSellingPrice.getText()), Double.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
                         frequentFunctions();
                         NotificationUtil.playNotification(AnimationType.POPUP, "Item Successfully Added!", NotificationType.SUCCESS, Duration.millis(3000));
                     }
                 } else {
-                    if (ItemCRUDController.updateItem(new Item(txtCode.getText(), txtName.getText(), String.valueOf(cmbCategory.getValue()), Double.valueOf(txtBuyingPrice.getText()), Double.valueOf(txtSellingPrice.getText()), Double.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
+                    if (ItemCrudOps.update(new Item(txtCode.getText(), txtName.getText(), String.valueOf(cmbCategory.getValue()), Double.valueOf(txtBuyingPrice.getText()), Double.valueOf(txtSellingPrice.getText()), Double.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
                         frequentFunctions();
                         NotificationUtil.playNotification(AnimationType.POPUP, "Item Updated Added!", NotificationType.SUCCESS, Duration.millis(3000));
                     }
@@ -247,16 +244,17 @@ public class ItemManagementFormController {
             e.printStackTrace();
         }
     }
+
     public void resetFields(Object... fields) {
 
-        for(Object o: fields){
-            if(o instanceof JFXTextField){
+        for (Object o : fields) {
+            if (o instanceof JFXTextField) {
                 JFXTextField field = (JFXTextField) o;
                 field.getParent().setStyle("-fx-border-color :   #EDEDF0;" + "-fx-border-width:1.5;" + "-fx-border-radius:  5;" + "-fx-background-radius:  5;");
-            }else if(o instanceof JFXComboBox){
+            } else if (o instanceof JFXComboBox) {
                 JFXComboBox field = (JFXComboBox) o;
                 field.getParent().setStyle("-fx-border-color :   #EDEDF0;" + "-fx-border-width:1.5;" + "-fx-border-radius:  5;" + "-fx-background-radius:  5;");
-            }else if(o instanceof ImageView){
+            } else if (o instanceof ImageView) {
                 ImageView field = (ImageView) o;
                 field.getParent().setStyle("-fx-border-color :   #EDEDF0;" + "-fx-border-width:1.5;" + "-fx-border-radius:  5;" + "-fx-background-radius:  5;");
             }
@@ -268,11 +266,11 @@ public class ItemManagementFormController {
 
         if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             try {
-                ArrayList<Item> list = ItemCRUDController.getMatching(search);
+                ArrayList<Item> list = ItemCrudOps.getMatchingResults(search);
                 ObservableList<ItemTM> obList = FXCollections.observableArrayList();
                 for (Item c : list) {
 
-                    obList.add(new ItemTM(c.getCode(), c.getName(), c.getCategory(),c.getQty(), c.getBuyingPrice(), c.getSellingPrice(),c.getDetail(),c.getImageLocation(), getJFXButton(c.getCode())));
+                    obList.add(new ItemTM(c.getCode(), c.getName(), c.getCategory(), c.getQty(), c.getBuyingPrice(), c.getSellingPrice(), c.getDetail(), c.getImageLocation(), getJFXButton(c.getCode())));
                 }
                 tblItems.getItems().clear();
                 tblItems.getItems().addAll(obList);

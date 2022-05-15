@@ -1,16 +1,13 @@
 package controller;
 
-import Model.Customer;
 import Model.Director;
 import Util.NotificationUtil;
 import Util.ValidationUtil;
-import View.TM.CustomerTM;
 import View.TM.DirectorTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.applet2.AppletParameters;
-import dao.CustomerCRUDController;
-import dao.DirectorCRUDController;
+import dao.Custom.DirectorDAO;
+import dao.Custom.impl.DirectorCRUDController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -50,6 +47,8 @@ public class DirectorManagementFormController {
     public TableColumn colOption;
     public JFXTextField txtSearch;
 
+    private final DirectorDAO DirectorCrudOps = new DirectorCRUDController();
+
     public void AddDirectorOnAction(ActionEvent actionEvent) {
         addOrUpdateDirector();
     }
@@ -57,12 +56,12 @@ public class DirectorManagementFormController {
     public void addOrUpdateDirector() {
         try {
             if (btnAddDir.getText().equals("Add Director")) {
-                if (DirectorCRUDController.saveDirector(new Director(txtID.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText(), Double.valueOf(txtMargin.getText())))) {
+                if (DirectorCrudOps.save(new Director(txtID.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText(), Double.valueOf(txtMargin.getText())))) {
                     frequentFunctions();
                     NotificationUtil.playNotification(AnimationType.POPUP, "Director Successfully Added!", NotificationType.SUCCESS, Duration.millis(3000));
                 }
             } else {
-                if (DirectorCRUDController.updateDrirector(new Director(txtID.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText(), Double.valueOf(txtMargin.getText())))) {
+                if (DirectorCrudOps.update(new Director(txtID.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText(), Double.valueOf(txtMargin.getText())))) {
                     frequentFunctions();
                     NotificationUtil.playNotification(AnimationType.POPUP, "Director Successfully Updated!", NotificationType.SUCCESS, Duration.millis(3000));
                 }
@@ -79,7 +78,7 @@ public class DirectorManagementFormController {
 
     public void resetForm() {
         try {
-            txtID.setText(DirectorCRUDController.getNextDirId());
+            txtID.setText(DirectorCrudOps.getNextId());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -113,7 +112,7 @@ public class DirectorManagementFormController {
         btnAddDir.setDisable(true);
         txtID.setEditable(false);
         try {
-            txtID.setText(DirectorCRUDController.getNextDirId());
+            txtID.setText(DirectorCrudOps.getNextId());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -160,7 +159,7 @@ public class DirectorManagementFormController {
 
     private void loadAllDirectors() {
         try {
-            ArrayList<Director> dirList = DirectorCRUDController.getAllDirectors();
+            ArrayList<Director> dirList = DirectorCrudOps.getAll();
             ObservableList<DirectorTM> obList = FXCollections.observableArrayList();
 
             for (Director d : dirList) {
@@ -184,7 +183,7 @@ public class DirectorManagementFormController {
             ButtonType buttonType = alert.getResult();
             if (buttonType.equals(ButtonType.YES)) {
                 try {
-                    if (DirectorCRUDController.deleteDirector(id)) {
+                    if (DirectorCrudOps.delete(id)) {
                         NotificationUtil.playNotification(AnimationType.POPUP, "Director Successfully Deleted!", NotificationType.SUCCESS, Duration.millis(3000));
                         frequentFunctions();
                     }
@@ -219,7 +218,7 @@ public class DirectorManagementFormController {
         String search = "%" + txtSearch.getText() + "%";
 
         try {
-            ArrayList<Director> list = DirectorCRUDController.getMatching(search);
+            ArrayList<Director> list = DirectorCrudOps.getMatchingResults(search);
             ObservableList<DirectorTM> obList = FXCollections.observableArrayList();
             for (Director d : list) {
 

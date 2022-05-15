@@ -2,7 +2,7 @@ package bo;
 
 import Model.Item;
 import dao.Custom.ItemVIewPane;
-import dao.ItemCRUDController;
+import dao.Custom.impl.ItemCRUDController;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;

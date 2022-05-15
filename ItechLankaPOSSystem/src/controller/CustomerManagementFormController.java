@@ -7,7 +7,8 @@ import Util.ValidationUtil;
 import View.TM.CustomerTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.CustomerCRUDController;
+import dao.Custom.CustomerDAO;
+import dao.Custom.impl.CustomerCRUDController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +23,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
-import tray.notification.TrayNotification;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class CustomerManagementFormController {
     public JFXTextField txtSearch;
 
     LinkedHashMap<JFXTextField, Pattern> RegexMap = new LinkedHashMap<>();
-
+    private final CustomerDAO customerCrudOps = new CustomerCRUDController();
 
     public void frequentFunctions() {
         clearAllFields();
@@ -61,12 +61,12 @@ public class CustomerManagementFormController {
     public void addOrUpdateCustomer() {
         try {
             if (btnAddCustomer.getText().equals("Add Client")) {
-                if (CustomerCRUDController.saveCustomer(new Customer(txtId.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText()))) {
+                if (customerCrudOps.save(new Customer(txtId.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText()))) {
                     frequentFunctions();
                     NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Added!", NotificationType.SUCCESS, Duration.millis(3000));
                 }
             } else {
-                if (CustomerCRUDController.updateCustomer(new Customer(txtId.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText()))) {
+                if (customerCrudOps.update(new Customer(txtId.getText(), txtName.getText(), txtNIC.getText(), txtMobile.getText(), txtAddress.getText()))) {
                     frequentFunctions();
                     NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Updated!", NotificationType.SUCCESS, Duration.millis(3000));
                 }
@@ -123,7 +123,7 @@ public class CustomerManagementFormController {
     private void loadALlCustomers() {
         ObservableList<CustomerTM> CustomerTableList = FXCollections.observableArrayList();
         try {
-            for (Customer c : CustomerCRUDController.getAllCustomers()) {
+            for (Customer c : customerCrudOps.getAll()) {
                 CustomerTableList.add(new CustomerTM(c.getId(), c.getName(), c.getNic(), c.getMobile(), c.getAddress(), getJFXButton(c.getId())));
             }
 
@@ -168,7 +168,7 @@ public class CustomerManagementFormController {
 
         if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             try {
-                ArrayList<Customer> list = CustomerCRUDController.getMatching(search);
+                ArrayList<Customer> list = customerCrudOps.getMatchingResults(search);
                 ObservableList<CustomerTM> obList = FXCollections.observableArrayList();
                 for (Customer c : list) {
 
@@ -196,7 +196,7 @@ public class CustomerManagementFormController {
             ButtonType buttonType = alert.getResult();
             if (buttonType.equals(ButtonType.YES)) {
                 try {
-                    if (CustomerCRUDController.deleteCustomer(id)) {
+                    if (customerCrudOps.delete(id)) {
                         NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Deleted!", NotificationType.SUCCESS, Duration.millis(3000));
                         frequentFunctions();
                         setAutoId();
