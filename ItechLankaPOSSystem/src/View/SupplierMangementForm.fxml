@@ -24,22 +24,22 @@
       </ImageView>
       <AnchorPane layoutX="68.0" layoutY="248.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtId" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="68.0" layoutY="338.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtName" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="68.0" layoutY="431.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField focusColor="#405aa800" layoutX="11.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtEmail" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="68.0" layoutY="523.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtAddress" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <Label layoutX="71.0" layoutY="224.0" opacity="0.66" text="Supplier ID" textFill="#263549">
@@ -67,34 +67,34 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <JFXButton layoutX="76.0" layoutY="706.0" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #003171;" text="Add Client" textFill="#cdd9e1">
+      <JFXButton fx:id="btnaddClient" layoutX="76.0" layoutY="706.0" onAction="#addClientOnAction" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #003171;" text="Add Supplier" textFill="#cdd9e1">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="255.0" layoutY="706.0" prefHeight="39.0" prefWidth="168.0" style="-fx-background-color: #E6EFFC;" text="Cancel" textFill="#69737d">
+      <JFXButton fx:id="btnCancel" layoutX="255.0" layoutY="706.0" onAction="#clearFormOnAction" prefHeight="39.0" prefWidth="168.0" style="-fx-background-color: #E6EFFC;" text="Cancel" textFill="#69737d">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="494.0" layoutY="151.0" opacity="0.7" prefHeight="653.0" prefWidth="1067.0" stylesheets="@../Assets/StyleSheets/table.css">
+      <TableView fx:id="tblSupplier" layoutX="494.0" layoutY="151.0" opacity="0.7" prefHeight="653.0" prefWidth="1067.0" stylesheets="@../Assets/StyleSheets/table.css">
          <columns>
-            <TableColumn prefWidth="170.0" text="CLIENT ID" />
-            <TableColumn prefWidth="159.0" text="CLIENT NAME" />
-            <TableColumn prefWidth="156.0" text="CLIENT NIC" />
-            <TableColumn prefWidth="179.0" text="CLIENT MOBILE" />
-            <TableColumn prefWidth="274.0" text="CLIENT ADDRESS" />
-            <TableColumn prefWidth="128.0" text="--" />
+            <TableColumn fx:id="colId" prefWidth="170.0" text="CLIENT ID" />
+            <TableColumn fx:id="colName" prefWidth="159.0" text="CLIENT NAME" />
+            <TableColumn fx:id="colNIC" prefWidth="156.0" text="CLIENT EMAIL" />
+            <TableColumn fx:id="colMobile" prefWidth="179.0" text="CLIENT MOBILE" />
+            <TableColumn fx:id="colAddress" prefWidth="274.0" text="CLIENT ADDRESS" />
+            <TableColumn fx:id="colOption" prefWidth="128.0" text="--" />
          </columns>
       </TableView>
       <AnchorPane layoutX="68.0" layoutY="625.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField focusColor="#405aa800" layoutX="12.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtMobile" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="494.0" layoutY="76.0" prefHeight="52.0" prefWidth="1067.0" style="-fx-border-color: #58D5E6; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField focusColor="#405aa800" layoutX="53.0" layoutY="7.0" prefHeight="39.0" prefWidth="996.0" promptText="Type To Searcch Clients..." stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtSearch" focusColor="#405aa800" layoutX="53.0" layoutY="7.0" onAction="#searchMatchingOnAction" prefHeight="39.0" prefWidth="996.0" promptText="Type To Searcch Suppliers..." stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
             <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="12.0" layoutY="10.0">
                <image>
                   <Image url="@../Assets/image%20(36).png" />

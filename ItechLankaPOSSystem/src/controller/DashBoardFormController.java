@@ -4,6 +4,7 @@ import Model.DashboardButton;
 import animatefx.animation.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import com.mysql.cj.exceptions.CJCommunicationsException;
 import db.DBConnection;
 import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
@@ -11,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -22,6 +25,7 @@ import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,8 +88,8 @@ public class DashBoardFormController {
     ImageView image = new ImageView(new Image("/Assets/image 222(40).png"));
 
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
-
         DBConnection.getInstance().getConnection();
+
         new FadeIn(MainContext).setSpeed(10).play();
         new FadeIn(NavigationContext).setSpeed(5).play();
 

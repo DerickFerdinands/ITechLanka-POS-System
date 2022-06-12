@@ -1,6 +1,7 @@
 package bo;
 
 import Model.Item;
+import dao.Custom.ItemDAO;
 import dao.Custom.ItemVIewPane;
 import dao.Custom.impl.ItemCRUDController;
 import javafx.scene.layout.AnchorPane;
@@ -10,8 +11,10 @@ import java.util.ArrayList;
 
 public class ItemBO {
 
+    private ItemDAO ItemCrudOps = new ItemCRUDController();
+
     public void SetItemView(AnchorPane pane) throws SQLException, ClassNotFoundException {
-        ArrayList<Item> ItemList = ItemCRUDController.getAllItems();
+        ArrayList<Item> ItemList = ItemCrudOps.getAll();
         ArrayList<Double> LayoutXValues = new ArrayList<>();
 
         double layoutX = 0;
