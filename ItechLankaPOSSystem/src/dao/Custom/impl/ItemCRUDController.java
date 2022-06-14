@@ -56,4 +56,30 @@ public class ItemCRUDController implements ItemDAO {
     public String getNextId() throws SQLException, ClassNotFoundException {
         return null;
     }
+
+    @Override
+    public ArrayList<String> getAllItemCodesAndNames() throws SQLException, ClassNotFoundException {
+        ResultSet result = CrudUtil.execute("SELECT code, name FROM Item");
+        ArrayList<String> itemDet = new ArrayList<>();
+        while (result.next()) {
+            itemDet.add(result.getString(1) + " - " + result.getString(2));
+        }
+        return itemDet;
+    }
+
+    @Override
+    public Item get(String code) throws SQLException, ClassNotFoundException {
+        ResultSet result = CrudUtil.execute("SELECT * FROM Item WHERE COde =?", code);
+        return result.next() ? new Item(
+                result.getString(1),
+                result.getString(2),
+                result.getString(3),
+                result.getDouble(4),
+                result.getDouble(5),
+                result.getDouble(6),
+                result.getString(7),
+                result.getString(8)) : null;
+    }
+
+
 }
