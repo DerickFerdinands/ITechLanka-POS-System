@@ -37,9 +37,7 @@ public class ItemViewFormController {
     private void loadAllItems() {
         try {
             IBO.SetItemView(ScrollerPane);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

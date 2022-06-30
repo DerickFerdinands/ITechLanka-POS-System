@@ -72,7 +72,7 @@ public class CustomerManagementFormController {
                     NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Updated!", NotificationType.SUCCESS, Duration.millis(3000));
                 }
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             NotificationUtil.playNotification(AnimationType.POPUP, "Client Successfully Deleted!", NotificationType.SUCCESS, Duration.millis(3000));
         }
@@ -129,7 +129,7 @@ public class CustomerManagementFormController {
             }
 
             tblCustomer.setItems(CustomerTableList);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -180,7 +180,7 @@ public class CustomerManagementFormController {
                 tblCustomer.refresh();
 
 
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -202,7 +202,7 @@ public class CustomerManagementFormController {
                         frequentFunctions();
                         setAutoId();
                     }
-                } catch (SQLException | ClassNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     NotificationUtil.playNotification(AnimationType.POPUP, e.getMessage(), NotificationType.ERROR, Duration.millis(3000));
                 }

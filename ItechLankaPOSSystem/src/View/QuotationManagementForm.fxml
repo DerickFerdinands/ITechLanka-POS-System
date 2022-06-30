@@ -142,7 +142,7 @@
       </Label>
       <AnchorPane layoutX="63.0" layoutY="582.0" prefHeight="52.0" prefWidth="353.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtAdvance" editable="false" focusColor="#405aa800" layoutX="7.0" layoutY="7.0" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtAdvance" editable="false" focusColor="#405aa800" layoutX="7.0" layoutY="7.0" onKeyReleased="#calculateBalance" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <Label layoutX="62.0" layoutY="455.0" opacity="0.66" text="Total" textFill="#263549">

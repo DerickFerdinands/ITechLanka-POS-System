@@ -80,10 +80,10 @@ public class OrderDAOImpl implements OrderDAO {
     public String getNextId() throws Exception {
         Session session = FactoryConfigurations.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        List<String> id = session.createQuery("SELECT Id FROM Orders").setMaxResults(1).list();
+        List<String> id = session.createQuery("SELECT Id FROM Orders ORDER BY Id DESC").setMaxResults(1).list();
         transaction.commit();
         session.close();
 
-        return id.size()>0?String.format("#O%05d",id.get(0).replace("#O","")):"#O0001";
+        return id.size()>0?String.format("#O%05d",Integer.valueOf(id.get(0).replace("#O",""))+1):"#O00001";
     }
 }

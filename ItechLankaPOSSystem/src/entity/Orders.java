@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,8 +22,16 @@ public class Orders {
     private LocalDate date;
     private double total;
     private String paymentStatus;
-    private BigDecimal payedAmount;
-    @OneToMany(mappedBy = "Order")
+    private double payedAmount;
+    @OneToMany(mappedBy = "Orders")
     private List<OrderDetail> orderDetailList = new ArrayList<>();
 
+    public Orders(String id, Customer customer, LocalDate date, double total, String paymentStatus, double payedAmount) {
+        Id = id;
+        this.customer = customer;
+        this.date = date;
+        this.total = total;
+        this.paymentStatus = paymentStatus;
+        this.payedAmount = payedAmount;
+    }
 }

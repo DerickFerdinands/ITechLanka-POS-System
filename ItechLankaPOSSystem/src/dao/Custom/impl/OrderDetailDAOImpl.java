@@ -81,6 +81,12 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 
     @Override
     public String getNextId() throws Exception {
-        return null;
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<String> id = session.createQuery("SELECT id FROM OrderDetail ORDER BY id DESC").setMaxResults(1).list();
+        transaction.commit();
+        session.close();
+
+        return id.size()>0?String.format("#OD%05d",Integer.valueOf(id.get(0).replace("#OD",""))+1):"#OD00001";
     }
 }

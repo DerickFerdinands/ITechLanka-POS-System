@@ -66,7 +66,7 @@ public class SupplierMangementFormController {
             loadAllSuppliers();
             clearFormOnAction(actionEvent);
             resetFields(RegexMap);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             NotificationUtil.playNotification(AnimationType.POPUP, e.getMessage(), NotificationType.ERROR, Duration.millis(3000));
         }
@@ -128,7 +128,7 @@ public class SupplierMangementFormController {
                 obList.add(new SupplierTM(s.getId(), s.getName(), s.getEmail(), s.getAddress(), s.getMobile(), getDeleteButton(s.getId())));
             }
             tblSupplier.setItems(obList);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -148,7 +148,7 @@ public class SupplierMangementFormController {
                         NotificationUtil.playNotification(AnimationType.POPUP, "Something Went Wrong!", NotificationType.ERROR, Duration.millis(3000));
                     }
 
-                } catch (SQLException | ClassNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -177,9 +177,7 @@ public class SupplierMangementFormController {
             }
 
             tblSupplier.setItems(obList);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

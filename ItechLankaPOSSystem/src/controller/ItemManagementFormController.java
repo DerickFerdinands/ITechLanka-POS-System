@@ -167,7 +167,7 @@ public class ItemManagementFormController {
             }
 
             tblItems.setItems(obList);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -187,7 +187,7 @@ public class ItemManagementFormController {
                         frequentFunctions();
                         setAutoId();
                     }
-                } catch (SQLException | ClassNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     NotificationUtil.playNotification(AnimationType.POPUP, e.getMessage(), NotificationType.ERROR, Duration.millis(3000));
                 }
@@ -244,7 +244,7 @@ public class ItemManagementFormController {
                     }
                 }
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -281,7 +281,7 @@ public class ItemManagementFormController {
                 tblItems.refresh();
 
 
-            } catch (SQLException | ClassNotFoundException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

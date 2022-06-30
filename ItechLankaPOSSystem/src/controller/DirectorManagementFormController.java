@@ -67,7 +67,7 @@ public class DirectorManagementFormController {
                     NotificationUtil.playNotification(AnimationType.POPUP, "Director Successfully Updated!", NotificationType.SUCCESS, Duration.millis(3000));
                 }
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             NotificationUtil.playNotification(AnimationType.POPUP, e.getMessage(), NotificationType.SUCCESS, Duration.millis(3000));
         }
@@ -80,10 +80,8 @@ public class DirectorManagementFormController {
     public void resetForm() {
         try {
             txtID.setText(DirectorCrudOps.getNextId());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+         e.printStackTrace();
         }
 
         txtName.clear();
@@ -114,10 +112,8 @@ public class DirectorManagementFormController {
         txtID.setEditable(false);
         try {
             txtID.setText(DirectorCrudOps.getNextId());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+           e.printStackTrace();
         }
         colID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -169,7 +165,7 @@ public class DirectorManagementFormController {
 
             tblDirec.setItems(obList);
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -188,7 +184,7 @@ public class DirectorManagementFormController {
                         NotificationUtil.playNotification(AnimationType.POPUP, "Director Successfully Deleted!", NotificationType.SUCCESS, Duration.millis(3000));
                         frequentFunctions();
                     }
-                } catch (SQLException | ClassNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     NotificationUtil.playNotification(AnimationType.POPUP, e.getMessage(), NotificationType.ERROR, Duration.millis(3000));
                 }
@@ -230,7 +226,7 @@ public class DirectorManagementFormController {
             tblDirec.refresh();
 
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

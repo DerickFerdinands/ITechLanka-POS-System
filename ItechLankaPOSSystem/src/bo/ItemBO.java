@@ -14,7 +14,7 @@ public class ItemBO {
 
     private ItemDAO ItemCrudOps = new ItemCRUDController();
 
-    public void SetItemView(AnchorPane pane) throws SQLException, ClassNotFoundException {
+    public void SetItemView(AnchorPane pane) throws Exception {
         ArrayList<Item> itemDTOList = ItemCrudOps.getAll();
         ArrayList<Double> LayoutXValues = new ArrayList<>();
 

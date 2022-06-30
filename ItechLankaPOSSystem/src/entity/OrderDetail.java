@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +22,6 @@ public class OrderDetail {
     @ManyToOne
     private Item item;
     private int qty;
-
+    private BigDecimal buyingPrice;
+    private BigDecimal sellingPrice;
 }

@@ -16,7 +16,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+
 @Entity
 public class Item {
     @Id
@@ -29,10 +29,9 @@ public class Item {
     private String details;
     private String imageLocation;
     @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany(mappedBy = "item", fetch = FetchType.EAGER)
-    private List<PurchaseDetail> purchaseDetailList = new ArrayList<>();
-    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "item")
+    private List<PurchaseDetail> purchaseDetailList = new ArrayList<>();
+    @OneToMany(mappedBy = "item", fetch = FetchType.LAZY)
     private List<OrderDetail> orderDetailList = new ArrayList<>();
 
     public Item(String code, String name, String category, BigDecimal buyingPrice, BigDecimal sellingPrice, int qty, String details, String imageLocation) {
@@ -44,5 +43,85 @@ public class Item {
         this.qty = qty;
         this.details = details;
         this.imageLocation = imageLocation;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public BigDecimal getBuyingPrice() {
+        return buyingPrice;
+    }
+
+    public void setBuyingPrice(BigDecimal buyingPrice) {
+        this.buyingPrice = buyingPrice;
+    }
+
+    public BigDecimal getSellingPrice() {
+        return sellingPrice;
+    }
+
+    public void setSellingPrice(BigDecimal sellingPrice) {
+        this.sellingPrice = sellingPrice;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
+    }
+
+    public List<PurchaseDetail> getPurchaseDetailList() {
+        return purchaseDetailList;
+    }
+
+    public void setPurchaseDetailList(List<PurchaseDetail> purchaseDetailList) {
+        this.purchaseDetailList = purchaseDetailList;
+    }
+
+    public List<OrderDetail> getOrderDetailList() {
+        return orderDetailList;
+    }
+
+    public void setOrderDetailList(List<OrderDetail> orderDetailList) {
+        this.orderDetailList = orderDetailList;
     }
 }

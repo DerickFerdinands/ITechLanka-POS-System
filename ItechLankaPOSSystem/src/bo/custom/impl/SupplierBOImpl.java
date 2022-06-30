@@ -13,22 +13,22 @@ public class SupplierBOImpl implements SupplierBo {
     SupplierDAO SupCrudOps = new SupplierCRUDController();
 
     @Override
-    public boolean saveSupplier(SupplierDTO s) throws SQLException, ClassNotFoundException {
+    public boolean saveSupplier(SupplierDTO s) throws Exception {
         return SupCrudOps.save(new Supplier(s.getId(),s.getName(),s.getEmail(),s.getAddress(),s.getMobile()));
     }
 
     @Override
-    public boolean updateSupplier(SupplierDTO s) throws SQLException, ClassNotFoundException {
+    public boolean updateSupplier(SupplierDTO s) throws Exception {
         return SupCrudOps.update(new Supplier(s.getId(),s.getName(),s.getEmail(),s.getAddress(),s.getMobile()));
     }
 
     @Override
-    public boolean deleteSupplier(String s) throws SQLException, ClassNotFoundException {
+    public boolean deleteSupplier(String s) throws Exception {
         return SupCrudOps.delete(s);
     }
 
     @Override
-    public ArrayList<SupplierDTO> getAllSuppliers() throws SQLException, ClassNotFoundException {
+    public ArrayList<SupplierDTO> getAllSuppliers() throws Exception {
         ArrayList<Supplier> all = SupCrudOps.getAll();
         ArrayList<SupplierDTO> allSuppliers = new ArrayList<>();
         for (Supplier s : all){
@@ -38,7 +38,7 @@ public class SupplierBOImpl implements SupplierBo {
     }
 
     @Override
-    public ArrayList<SupplierDTO> getMatchingSuppliers(String search) throws SQLException, ClassNotFoundException {
+    public ArrayList<SupplierDTO> getMatchingSuppliers(String search) throws Exception {
         ArrayList<Supplier> matchingResults = SupCrudOps.getMatchingResults(search);
         ArrayList<SupplierDTO> matching = new ArrayList<>();
         for (Supplier s : matchingResults){
