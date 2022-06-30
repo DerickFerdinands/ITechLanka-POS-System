@@ -1,69 +1,98 @@
 package dao.Custom.impl;
 
-import Model.Customer;
-import Model.Director;
 import Util.CrudUtil;
+import Util.FactoryConfigurations;
 import dao.Custom.DirectorDAO;
+import entity.Director;
+import entity.Item;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DirectorCRUDController implements DirectorDAO {
     @Override
-    public ArrayList<Director> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet result = CrudUtil.execute("SELECT * FROM Director");
-        ArrayList<Director> DirList = new ArrayList<>();
-
-        while (result.next()) {
-            DirList.add(new Director(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getDouble(6)));
-        }
-        return DirList;
+    public ArrayList<Director> getAll() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Director> list = session.createQuery("From Director").list();
+        transaction.commit();
+        session.close();
+        return new ArrayList<Director>(list);
     }
 
     @Override
-    public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("DELETE FROM Director WHERE id=?", id);
+    public boolean delete(String id) throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(session.load(Director.class,id));
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
-    public boolean save(Director d) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("INSERT INTO Director VALUES (?,?,?,?,?,?)", d.getId(), d.getName(), d.getNic(), d.getMobile(), d.getAddress(), d.getProfitMargin());
+    public boolean save(Director d) throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(d);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
-    public boolean update(Director d) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("UPDATE Director SET name=?,nic=?,mobile=?,address=?,profitMargin=? WHERE id=?", d.getName(), d.getNic(), d.getMobile(), d.getAddress(), d.getProfitMargin(), d.getId());
+    public boolean update(Director d) throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(d);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
-    public ArrayList<Director> getMatchingResults(String search) throws SQLException, ClassNotFoundException {
-        ResultSet result = CrudUtil.execute("SELECT * from Director where id LIKE ? OR name LIKE ? OR nic LIKE ? OR mobile LIKE ? OR address LIKE ? OR profitMargin LIKE ?", search, search, search, search, search, search);
-        ArrayList<Director> list = new ArrayList<>();
-
-        while (result.next()) {
-            list.add(new Director(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getDouble(6)));
-        }
-        return list;
+    public ArrayList<Director> getMatchingResults(String search) throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Director> list = session.createQuery(" from Director where id LIKE :ID OR name LIKE :Name OR nic LIKE :NIC OR mobile LIKE :Mobile OR address LIKE :Address OR profitMargin = :Margin")
+                .setParameter("ID",search)
+                .setParameter("Name",search)
+                .setParameter("NIC",search)
+                .setParameter("Mobile",search)
+                .setParameter("Address",search)
+                .setParameter("Margin",search).list();
+        transaction.commit();
+        session.close();
+        return new ArrayList<Director>(list);
     }
 
     @Override
-    public String getLastId() throws SQLException, ClassNotFoundException {
-        ResultSet result = CrudUtil.execute("SELECT id FROM Director ORDER BY id DESC LIMIT 1");
+    public String getLastId() throws Exception {
 
-        if (result.next()) {
-            return result.getString(1);
-        } else {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<String> list = session.createQuery("SELECT id FROM Director ORDER BY id DESC").setMaxResults(1).list();
+        transaction.commit();
+        session.close();
+        return list.size()>0? list.get(0):"D00-001";
+    }
+
+    @Override
+    public String getNextId() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<String> list = session.createQuery("SELECT id FROM Director ORDER BY id DESC").setMaxResults(1).list();
+        transaction.commit();
+        session.close();
+        String id = list.size()>0? list.get(0):"";
+
+        if (id.equals("")) {
             return "D00-001";
-        }
-    }
-
-    @Override
-    public String getNextId() throws SQLException, ClassNotFoundException {
-        String id = getLastId();
-
-        if (id.equals("D00-001")) {
-            return id;
         } else {
             String[] splitted = id.split("D00-");
             return String.format("D00-%03d", Integer.valueOf(splitted[1]) + 1);

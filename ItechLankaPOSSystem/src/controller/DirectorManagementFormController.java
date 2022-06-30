@@ -1,6 +1,6 @@
 package controller;
 
-import Model.Director;
+import Model.DirectorDTO;
 import Util.NotificationUtil;
 import Util.ValidationUtil;
 import View.TM.DirectorTM;
@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Custom.DirectorDAO;
 import dao.Custom.impl.DirectorCRUDController;
+import entity.Director;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

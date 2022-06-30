@@ -1,6 +1,6 @@
 package controller;
 
-import Model.Supplier;
+import Model.SupplierDTO;
 import Util.NotificationUtil;
 import Util.ValidationUtil;
 import View.TM.SupplierTM;
@@ -51,13 +51,13 @@ public class SupplierMangementFormController {
     public void addClientOnAction(ActionEvent actionEvent) {
         try {
             if (btnaddClient.getText().equals("Add Supplier")) {
-                if (SupplierBOps.saveSupplier(new Supplier(txtId.getText(), txtName.getText(), txtEmail.getText(), txtAddress.getText(), txtMobile.getText()))) {
+                if (SupplierBOps.saveSupplier(new SupplierDTO(txtId.getText(), txtName.getText(), txtEmail.getText(), txtAddress.getText(), txtMobile.getText()))) {
                     NotificationUtil.playNotification(AnimationType.POPUP, "Supplier Successfully Added!", NotificationType.SUCCESS, Duration.millis(3000));
                 } else {
                     NotificationUtil.playNotification(AnimationType.POPUP, "Something Went Wrong", NotificationType.ERROR, Duration.millis(3000));
                 }
             } else {
-                if (SupplierBOps.updateSupplier(new Supplier(txtId.getText(), txtName.getText(), txtEmail.getText(), txtAddress.getText(), txtMobile.getText()))) {
+                if (SupplierBOps.updateSupplier(new SupplierDTO(txtId.getText(), txtName.getText(), txtEmail.getText(), txtAddress.getText(), txtMobile.getText()))) {
                     NotificationUtil.playNotification(AnimationType.POPUP, "Supplier Successfully Updated!", NotificationType.SUCCESS, Duration.millis(3000));
                 } else {
                     NotificationUtil.playNotification(AnimationType.POPUP, "Something Went Wrong", NotificationType.ERROR, Duration.millis(3000));
@@ -124,7 +124,7 @@ public class SupplierMangementFormController {
     private void loadAllSuppliers() {
         ObservableList<SupplierTM> obList = FXCollections.observableArrayList();
         try {
-            for (Supplier s : SupplierBOps.getAllSuppliers()) {
+            for (SupplierDTO s : SupplierBOps.getAllSuppliers()) {
                 obList.add(new SupplierTM(s.getId(), s.getName(), s.getEmail(), s.getAddress(), s.getMobile(), getDeleteButton(s.getId())));
             }
             tblSupplier.setItems(obList);
@@ -169,10 +169,10 @@ public class SupplierMangementFormController {
 
     public void searchMatchingOnAction(ActionEvent actionEvent) {
         try {
-            ArrayList<Supplier> matchingSuppliers = SupplierBOps.getMatchingSuppliers("%" + txtSearch.getText() + "%");
+            ArrayList<SupplierDTO> matchingSupplierDTOS = SupplierBOps.getMatchingSuppliers("%" + txtSearch.getText() + "%");
             ObservableList<SupplierTM> obList = FXCollections.observableArrayList();
 
-            for(Supplier s: matchingSuppliers){
+            for(SupplierDTO s: matchingSupplierDTOS){
                 obList.add(new SupplierTM(s.getId(),s.getName(),s.getEmail(),s.getAddress(),s.getMobile(),getDeleteButton(s.getId())));
             }
 

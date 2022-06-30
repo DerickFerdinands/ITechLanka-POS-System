@@ -2,13 +2,15 @@ package View.TM;
 
 import com.jfoenix.controls.JFXButton;
 
+import java.math.BigDecimal;
+
 public class ItemTM {
     private String code;
     private String name;
     private String category;
-    private double buyingPrice;
-    private double sellingPrice;
-    private double qty;
+    private BigDecimal buyingPrice;
+    private BigDecimal sellingPrice;
+    private int qty;
     private String detail;
     private String imageLocation;
     private JFXButton btn;
@@ -16,7 +18,7 @@ public class ItemTM {
     public ItemTM() {
     }
 
-    public ItemTM(String code, String name, String category, double buyingPrice, double sellingPrice, double qty, String detail, String imageLocation, JFXButton btn) {
+    public ItemTM(String code, String name, String category, BigDecimal buyingPrice, BigDecimal sellingPrice, int qty, String detail, String imageLocation, JFXButton btn) {
         this.code = code;
         this.name = name;
         this.category = category;
@@ -67,27 +69,27 @@ public class ItemTM {
         this.category = category;
     }
 
-    public double getBuyingPrice() {
+    public BigDecimal getBuyingPrice() {
         return buyingPrice;
     }
 
-    public void setBuyingPrice(double buyingPrice) {
+    public void setBuyingPrice(BigDecimal buyingPrice) {
         this.buyingPrice = buyingPrice;
     }
 
-    public double getSellingPrice() {
+    public BigDecimal getSellingPrice() {
         return sellingPrice;
     }
 
-    public void setSellingPrice(double sellingPrice) {
+    public void setSellingPrice(BigDecimal sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
 
-    public double getQty() {
+    public int getQty() {
         return qty;
     }
 
-    public void setQty(double qty) {
+    public void setQty(int qty) {
         this.qty = qty;
     }
 

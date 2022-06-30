@@ -1,6 +1,6 @@
 package controller;
 
-import Model.Item;
+import Model.ItemDTO;
 import Util.NotificationUtil;
 import Util.ValidationUtil;
 import View.TM.ItemTM;
@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import dao.Custom.ItemDAO;
 import dao.Custom.impl.ItemCRUDController;
+import entity.Item;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +32,7 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -43,7 +45,7 @@ public class ItemManagementFormController {
     public JFXTextField txtBuyingPrice;
     public JFXButton btnAddItem;
     public JFXTextField txtSellingPrice;
-    public JFXComboBox cmbCategory;
+    public JFXComboBox<String> cmbCategory;
     public JFXTextField txtName;
     public AnchorPane nchrPnImage;
     public JFXTextArea txtrDetails;
@@ -155,11 +157,13 @@ public class ItemManagementFormController {
 
     private void loadAllItems() {
         try {
-            ArrayList<Item> itemList = ItemCrudOps.getAll();
+            ArrayList<Item> itemDTOList = ItemCrudOps.getAll();
+            System.out.println(itemDTOList);
             ObservableList<ItemTM> obList = FXCollections.observableArrayList();
 
-            for (Item item : itemList) {
-                obList.add(new ItemTM(item.getCode(), item.getName(), item.getCategory(), item.getBuyingPrice(), item.getSellingPrice(), item.getQty(), item.getDetail(), item.getImageLocation(), getJFXButton(item.getCode())));
+            for (Item itemDTO : itemDTOList) {
+                System.out.println(itemDTO);
+                obList.add(new ItemTM(itemDTO.getCode(), itemDTO.getName(), itemDTO.getCategory(), itemDTO.getBuyingPrice(), itemDTO.getSellingPrice(), itemDTO.getQty(), itemDTO.getDetails(), itemDTO.getImageLocation(), getJFXButton(itemDTO.getCode())));
             }
 
             tblItems.setItems(obList);
@@ -229,12 +233,12 @@ public class ItemManagementFormController {
                 }
             } else {
                 if (btnAddItem.getText().equals("Add Item")) {
-                    if (ItemCrudOps.save(new Item(txtCode.getText(), txtName.getText(), String.valueOf(cmbCategory.getValue()), Double.valueOf(txtBuyingPrice.getText()), Double.valueOf(txtSellingPrice.getText()), Double.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
+                    if (ItemCrudOps.save(new Item(txtCode.getText(), txtName.getText(), cmbCategory.getValue(), BigDecimal.valueOf(Double.valueOf(txtBuyingPrice.getText())), BigDecimal.valueOf(Double.valueOf(txtSellingPrice.getText())), Integer.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
                         frequentFunctions();
                         NotificationUtil.playNotification(AnimationType.POPUP, "Item Successfully Added!", NotificationType.SUCCESS, Duration.millis(3000));
                     }
                 } else {
-                    if (ItemCrudOps.update(new Item(txtCode.getText(), txtName.getText(), String.valueOf(cmbCategory.getValue()), Double.valueOf(txtBuyingPrice.getText()), Double.valueOf(txtSellingPrice.getText()), Double.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
+                    if (ItemCrudOps.update(new Item(txtCode.getText(), txtName.getText(), cmbCategory.getValue(), BigDecimal.valueOf(Double.valueOf(txtBuyingPrice.getText())), BigDecimal.valueOf(Double.valueOf(txtSellingPrice.getText())), Integer.valueOf(txtQty.getText()), txtrDetails.getText(), file.getPath()))) {
                         frequentFunctions();
                         NotificationUtil.playNotification(AnimationType.POPUP, "Item Updated Added!", NotificationType.SUCCESS, Duration.millis(3000));
                     }
@@ -270,7 +274,7 @@ public class ItemManagementFormController {
                 ObservableList<ItemTM> obList = FXCollections.observableArrayList();
                 for (Item c : list) {
 
-                    obList.add(new ItemTM(c.getCode(), c.getName(), c.getCategory(), c.getQty(), c.getBuyingPrice(), c.getSellingPrice(), c.getDetail(), c.getImageLocation(), getJFXButton(c.getCode())));
+                    obList.add(new ItemTM(c.getCode(), c.getName(), c.getCategory(),c.getSellingPrice(), c.getBuyingPrice(), c.getQty(), c.getDetails(), c.getImageLocation(), getJFXButton(c.getCode())));
                 }
                 tblItems.getItems().clear();
                 tblItems.getItems().addAll(obList);

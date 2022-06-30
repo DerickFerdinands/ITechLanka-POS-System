@@ -1,13 +1,10 @@
 package bo.custom.impl;
 
-import Model.Supplier;
-import View.TM.SupplierTM;
+import Model.SupplierDTO;
 import bo.custom.SupplierBo;
-import com.jfoenix.controls.JFXButton;
 import dao.Custom.SupplierDAO;
 import dao.Custom.impl.SupplierCRUDController;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import entity.Supplier;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,13 +13,13 @@ public class SupplierBOImpl implements SupplierBo {
     SupplierDAO SupCrudOps = new SupplierCRUDController();
 
     @Override
-    public boolean saveSupplier(Supplier s) throws SQLException, ClassNotFoundException {
-        return SupCrudOps.save(s);
+    public boolean saveSupplier(SupplierDTO s) throws SQLException, ClassNotFoundException {
+        return SupCrudOps.save(new Supplier(s.getId(),s.getName(),s.getEmail(),s.getAddress(),s.getMobile()));
     }
 
     @Override
-    public boolean updateSupplier(Supplier s) throws SQLException, ClassNotFoundException {
-        return SupCrudOps.update(s);
+    public boolean updateSupplier(SupplierDTO s) throws SQLException, ClassNotFoundException {
+        return SupCrudOps.update(new Supplier(s.getId(),s.getName(),s.getEmail(),s.getAddress(),s.getMobile()));
     }
 
     @Override
@@ -31,13 +28,23 @@ public class SupplierBOImpl implements SupplierBo {
     }
 
     @Override
-    public ArrayList<Supplier> getAllSuppliers() throws SQLException, ClassNotFoundException {
-        return SupCrudOps.getAll();
+    public ArrayList<SupplierDTO> getAllSuppliers() throws SQLException, ClassNotFoundException {
+        ArrayList<Supplier> all = SupCrudOps.getAll();
+        ArrayList<SupplierDTO> allSuppliers = new ArrayList<>();
+        for (Supplier s : all){
+            allSuppliers.add(new SupplierDTO(s.getId(),s.getName(),s.getEmail(),s.getAddress(),s.getMobile()));
+        }
+        return allSuppliers;
     }
 
     @Override
-    public ArrayList<Supplier> getMatchingSuppliers(String search) throws SQLException, ClassNotFoundException {
-        return SupCrudOps.getMatchingResults(search);
+    public ArrayList<SupplierDTO> getMatchingSuppliers(String search) throws SQLException, ClassNotFoundException {
+        ArrayList<Supplier> matchingResults = SupCrudOps.getMatchingResults(search);
+        ArrayList<SupplierDTO> matching = new ArrayList<>();
+        for (Supplier s : matchingResults){
+            matching.add(new SupplierDTO(s.getId(),s.getName(),s.getEmail(),s.getAddress(),s.getMobile()));
+        }
+        return matching;
     }
 
 

@@ -1,7 +1,8 @@
 package dao.Custom;
 
-import Model.Director;
+import Model.DirectorDTO;
 import dao.CrudDAO;
+import entity.Director;
 
 public interface DirectorDAO extends CrudDAO<Director,String> {
 }

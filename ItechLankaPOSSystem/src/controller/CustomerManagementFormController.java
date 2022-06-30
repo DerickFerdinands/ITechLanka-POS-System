@@ -1,6 +1,6 @@
 package controller;
 
-import Model.Customer;
+import Model.CustomerDTO;
 import Util.GenerateAutoId;
 import Util.NotificationUtil;
 import Util.ValidationUtil;
@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Custom.CustomerDAO;
 import dao.Custom.impl.CustomerCRUDController;
+import entity.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
