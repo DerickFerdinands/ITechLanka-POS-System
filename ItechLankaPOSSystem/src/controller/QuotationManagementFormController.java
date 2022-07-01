@@ -199,7 +199,7 @@ public class QuotationManagementFormController {
 
     private JFXButton getButton(String itemCode) {
         JFXButton btn = new JFXButton("Delete");
-        btn.setStyle("-fx-background-color: Black");
+        btn.setStyle("-fx-background-color: Black;"+"-fx-text-fill: White");
         btn.setOnAction(event -> {
             tblCart.getItems().remove(tblCart.getItems().stream().filter(o -> {
                 return o.getItemCode().equals(itemCode);
@@ -262,7 +262,7 @@ public class QuotationManagementFormController {
     }
 
     private double calculateTotal() {
-        double total = tblCart.getItems().stream().mapToDouble(cartTM -> Double.valueOf(cartTM.getTotal() + "") * cartTM.getQty()).sum();
+        double total = tblCart.getItems().stream().mapToDouble(cartTM -> Double.valueOf(cartTM.getTotal() + "") ).sum();
         lblTotal.setText(total + "");
         txtTotal.setText(total + "");
         if (rdbxQuotation.isSelected()) {

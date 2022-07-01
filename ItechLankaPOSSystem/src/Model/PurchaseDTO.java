@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Data
 public class PurchaseDTO {
     private String ID;
-    private Supplier supplier;
+    private SupplierDTO supplier;
     private double total;
     private LocalDate date;
 }

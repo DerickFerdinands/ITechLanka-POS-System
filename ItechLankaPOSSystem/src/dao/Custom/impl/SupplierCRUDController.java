@@ -1,5 +1,6 @@
 package dao.Custom.impl;
 
+import Model.SupplierDTO;
 import Util.CrudUtil;
 import Util.FactoryConfigurations;
 import dao.Custom.SupplierDAO;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SupplierCRUDController implements SupplierDAO {
     @Override
@@ -28,7 +30,7 @@ public class SupplierCRUDController implements SupplierDAO {
     public boolean delete(String s) throws Exception {
         Session session = FactoryConfigurations.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(session.load(Supplier.class,s));
+        session.delete(session.load(Supplier.class, s));
         transaction.commit();
         session.close();
         return true;
@@ -52,7 +54,8 @@ public class SupplierCRUDController implements SupplierDAO {
         session.update(d);
         transaction.commit();
         session.close();
-        return true;    }
+        return true;
+    }
 
     @Override
     public ArrayList<Supplier> getMatchingResults(String search) throws Exception {
@@ -72,7 +75,7 @@ public class SupplierCRUDController implements SupplierDAO {
         List<String> list = session.createQuery("SELECT id FROM Supplier ORDER BY id DESC").setMaxResults(1).list();
         transaction.commit();
         session.close();
-        if (list.size()>0) {
+        if (list.size() > 0) {
             return list.get(0);
         } else {
             return "S00-001";
@@ -86,7 +89,7 @@ public class SupplierCRUDController implements SupplierDAO {
         List<String> list = session.createQuery("SELECT id FROM Supplier ORDER BY id DESC").setMaxResults(1).list();
         transaction.commit();
         session.close();
-        String id = list.size()>0?list.get(0):"";
+        String id = list.size() > 0 ? list.get(0) : "";
 
         if (id.equals("")) {
             return id;
@@ -94,5 +97,27 @@ public class SupplierCRUDController implements SupplierDAO {
             String[] splitted = id.split("S00-");
             return String.format("S00-%03d", Integer.valueOf(splitted[1]) + 1);
         }
+    }
+
+    @Override
+    public ArrayList<String> getALlSupplierIdAndNames() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery("SELECT Id, name FROM Supplier").list();
+        transaction.commit();
+        session.close();
+        return new ArrayList<String>(list.stream().map(o -> {
+            return o[0] + " - " + o[1];
+        }).collect(Collectors.toList()));
+    }
+
+    @Override
+    public Supplier get(String id) throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Supplier supplier = session.get(Supplier.class, id);
+        transaction.commit();
+        session.close();
+        return supplier;
     }
 }

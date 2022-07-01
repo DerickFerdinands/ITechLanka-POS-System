@@ -1,5 +1,6 @@
 package bo;
 
+import bo.custom.impl.PurchaseManagementBOImpl;
 import bo.custom.impl.QuotationManagementBOImpl;
 import bo.custom.impl.SupplierBOImpl;
 
@@ -19,12 +20,14 @@ public class BOFactory {
                 return new QuotationManagementBOImpl();
             case SUPPLIER:
                 return new SupplierBOImpl();
+            case PURCHASE:
+                return new PurchaseManagementBOImpl();
             default:
                 return null;
         }
     }
 
     public enum BOTypes {
-        QUOTATION, SUPPLIER
+        QUOTATION, SUPPLIER, PURCHASE
     }
 }
