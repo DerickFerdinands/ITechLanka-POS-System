@@ -1,38 +1,38 @@
 package dao.Custom.impl;
 
 import Util.FactoryConfigurations;
-import dao.Custom.PurchaseDAO;
-import entity.Orders;
-import entity.Purchase;
+import dao.Custom.PurchaseDetailDAO;
+import entity.OrderDetail;
+import entity.PurchaseDetail;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PurchaseDAOImpl implements PurchaseDAO {
+public class PurchaseDetailDAOImpl implements PurchaseDetailDAO {
     @Override
-    public ArrayList<Purchase> getAll() throws Exception {
+    public ArrayList<PurchaseDetail> getAll() throws Exception {
         Session session = FactoryConfigurations.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        List<Purchase> list = session.createQuery("FROM Purchase").list();
+        List<PurchaseDetail> list = session.createQuery("FROM PurchaseDetail ").list();
         transaction.commit();
         session.close();
-        return new ArrayList<Purchase>(list);
+        return new ArrayList<PurchaseDetail>(list);
     }
 
     @Override
     public boolean delete(String s) throws Exception {
         Session session = FactoryConfigurations.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(session.load(Purchase.class,s));
+        session.delete(session.load(PurchaseDetail.class,s));
         transaction.commit();
         session.close();
         return true;
     }
 
     @Override
-    public boolean save(Purchase entity) throws Exception {
+    public boolean save(PurchaseDetail entity) throws Exception {
         Session session = FactoryConfigurations.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
@@ -50,7 +50,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     }
 
     @Override
-    public boolean update(Purchase entity) throws Exception {
+    public boolean update(PurchaseDetail entity) throws Exception {
         Session session = FactoryConfigurations.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
@@ -68,7 +68,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     }
 
     @Override
-    public ArrayList<Purchase> getMatchingResults(String search) throws Exception {
+    public ArrayList<PurchaseDetail> getMatchingResults(String search) throws Exception {
         return null;
     }
 
@@ -79,12 +79,6 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 
     @Override
     public String getNextId() throws Exception {
-        Session session = FactoryConfigurations.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        List<String> id = session.createQuery("SELECT ID FROM Purchase ORDER BY ID DESC").setMaxResults(1).list();
-        transaction.commit();
-        session.close();
-
-        return id.size()>0?String.format("#P%05d",Integer.valueOf(id.get(0).replace("#P",""))+1):"#P00001";
+        return null;
     }
 }
