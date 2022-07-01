@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="861.0" prefWidth="1586.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #F3F1FB; -fx-border-radius: 5; -fx-background-radius: 10;" stylesheets="@../Assets/StyleSheets/CommonThings.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerManagementFormController">
+   <children>
+      <ImageView fitHeight="689.0" fitWidth="1038.0" layoutX="499.0" layoutY="169.0" opacity="0.72">
+         <image>
+            <Image url="@../Assets/9d0e0b7dd96083e7ef41f7a6af57b6eb.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="58.0" layoutY="238.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtId" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="58.0" layoutY="328.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtName" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="58.0" layoutY="421.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtNIC" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="58.0" layoutY="513.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtMobile" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children></AnchorPane>
+      <Label layoutX="61.0" layoutY="214.0" opacity="0.66" text="Client ID" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="307.0" opacity="0.66" text="Client Name" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="397.0" opacity="0.66" text="Client NIC" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="488.0" opacity="0.66" text="Client Mobile" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="590.0" opacity="0.66" text="Client Address" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnAddCustomer" layoutX="66.0" layoutY="696.0" onAction="#addCustomerOnAction" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #003171;" text="Add Client" textFill="#cdd9e1">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="245.0" layoutY="696.0" onAction="#clearFieldsOnAction" prefHeight="39.0" prefWidth="168.0" style="-fx-background-color: #E6EFFC;" text="Cancel" textFill="#69737d">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView layoutX="47.0" layoutY="146.0">
+         <image>
+            <Image url="@../Assets/Screenshot%202022-04-27%20194200.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="212.0" layoutX="22.0" layoutY="53.0" opacity="0.79">
+         <image>
+            <Image url="@../Assets/clients-label.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblCustomer" layoutX="484.0" layoutY="141.0" opacity="0.66" prefHeight="653.0" prefWidth="1067.0" stylesheets="@../Assets/StyleSheets/table.css">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="140.0" text="CLIENT ID" />
+          <TableColumn fx:id="colName" prefWidth="245.0" text="CLIENT NAME" />
+            <TableColumn fx:id="colNIC" prefWidth="206.0" text="CLIENT NIC" />
+            <TableColumn fx:id="colMobile" prefWidth="143.0" text="CLIENT MOBILE" />
+            <TableColumn fx:id="colAddress" prefWidth="240.0" text="CLIENT ADDRESS" />
+            <TableColumn fx:id="colOption" prefWidth="92.0" text="--" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="58.0" layoutY="615.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtAddress" focusColor="#405aa800" layoutX="12.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" unFocusColor="#4d4d4d07" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="484.0" layoutY="66.0" prefHeight="52.0" prefWidth="1067.0" style="-fx-border-color: #58D5E6; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtSearch" focusColor="#405aa800" layoutX="53.0" layoutY="7.0" onKeyReleased="#searchMatchingItems" prefHeight="39.0" prefWidth="996.0" promptText="Type  And Press Enter To Search Clients..." unFocusColor="#4d4d4d07" />
+            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="12.0" layoutY="10.0">
+               <image>
+                  <Image url="@../Assets/image%20(36).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

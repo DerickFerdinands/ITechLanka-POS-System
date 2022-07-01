@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ItemMainPane" prefHeight="861.0" prefWidth="1586.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #F3F1FB; -fx-border-radius: 5; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemManagementFormController">
+   <children>
+      <ImageView fitHeight="587.0" fitWidth="915.0" layoutX="542.0" layoutY="187.0" opacity="0.78">
+         <image>
+            <Image url="@../Assets/Screenshot%202022-04-27%20170306.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="85.0" layoutX="54.0" layoutY="49.0">
+         <image>
+            <Image url="@../Assets/Screenshot%202022-04-29%20144409.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="16.0" fitWidth="152.0" layoutX="56.0" layoutY="119.0">
+         <image>
+            <Image url="@../Assets/Screenshot%202022-04-29%20144626.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="68.0" layoutY="188.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtCode" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="68.0" layoutY="464.0" prefHeight="52.0" prefWidth="127.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtQty" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="68.0" layoutY="557.0" prefHeight="52.0" prefWidth="161.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtBuyingPrice" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="71.0" layoutY="164.0" opacity="0.66" text="Item Code" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="443.0" opacity="0.66" text="Qty" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="533.0" opacity="0.66" text="Buying Price" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnAddItem" layoutX="73.0" layoutY="783.0" onAction="#addItemOnAction" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #003171;" text="Add Item" textFill="#cdd9e1">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="252.0" layoutY="783.0" onAction="#ResetFormOnAction" prefHeight="39.0" prefWidth="168.0" style="-fx-background-color: #E6EFFC;" text="Cancel" textFill="#69737d">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane layoutX="258.0" layoutY="557.0" prefHeight="52.0" prefWidth="152.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtSellingPrice" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="152.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="261.0" layoutY="533.0" opacity="0.66" text="Selling Price" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblItems" layoutX="474.0" layoutY="151.0" opacity="0.7" prefHeight="672.0" prefWidth="1067.0" stylesheets="@../Assets/StyleSheets/table.css">
+         <columns>
+            <TableColumn fx:id="colCode" prefWidth="132.0" text="ITEM CODE" />
+            <TableColumn fx:id="colName" prefWidth="197.0" text="ITEM NAME" />
+            <TableColumn fx:id="colCategory" prefWidth="156.0" text="CATEGORY" />
+            <TableColumn fx:id="colQty" prefWidth="139.0" text="QTY" />
+            <TableColumn fx:id="colBuyingPrice" prefWidth="164.0" text="BUYING PRICE" />
+            <TableColumn fx:id="colSellingPrice" prefWidth="152.0" text="SELLING PRICE" />
+            <TableColumn fx:id="colOption" prefWidth="128.0" text="---" />
+         </columns>
+      </TableView>
+      <AnchorPane layoutX="474.0" layoutY="76.0" prefHeight="52.0" prefWidth="1067.0" style="-fx-border-color: #58D5E6; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtSearch" focusColor="#405aa800" layoutX="53.0" layoutY="7.0" onKeyReleased="#searchMatchingItems" prefHeight="39.0" prefWidth="996.0" promptText="Type To Searcch Items..." stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="12.0" layoutY="10.0">
+               <image>
+                  <Image url="@../Assets/image%20(36).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="68.0" layoutY="374.0" prefHeight="52.0" prefWidth="161.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXComboBox fx:id="cmbCategory" focusColor="#405aa800" layoutX="2.0" layoutY="7.0" prefHeight="39.0" prefWidth="166.0" unFocusColor="#4d4d4d00" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="71.0" layoutY="350.0" opacity="0.66" text="Category" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="68.0" layoutY="278.0" prefHeight="52.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtName" focusColor="#405aa800" layoutX="11.0" layoutY="7.0" onKeyReleased="#validateFields" prefHeight="39.0" prefWidth="341.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="71.0" layoutY="254.0" opacity="0.66" text="Item Name" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="nchrPnImage" layoutX="262.0" layoutY="374.0" onMouseClicked="#OpenFileSelector" prefHeight="145.0" prefWidth="152.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #F3F3F3;">
+         <children>
+            <ImageView fx:id="imgSelectedImage" fitHeight="52.0" fitWidth="48.0" layoutX="52.0" layoutY="49.0" opacity="0.65" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/image_FILL0_wght400_GRAD0_opsz48.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane layoutX="68.0" layoutY="645.0" prefHeight="122.0" prefWidth="362.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextArea fx:id="txtrDetails" focusColor="#405aa800" layoutX="1.0" layoutY="-2.0" onKeyReleased="#validateFields" prefHeight="120.0" prefWidth="362.0" promptText="  Optional" unFocusColor="#4d4d4d00" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="71.0" layoutY="623.0" opacity="0.66" text="Details" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="350.0" opacity="0.66" text="Item Image" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="MainContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="930.0" prefWidth="1800.0" style="-fx-background-color: #FBFDFF;" stylesheets="@../Assets/StyleSheets/MainFont.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+   <children>
+      <JFXTextField fx:id="txtSearch" focusColor="#405aa800" layoutX="266.0" layoutY="12.0" prefHeight="41.0" prefWidth="594.0" promptText="Type To Search..." style="-fx-background-radius: 10; -fx-border-radius: 5;" unFocusColor="#4d4d4d00" />
+      <ImageView fitHeight="30.0" fitWidth="138.0" layoutX="28.0" layoutY="21.0" opacity="0.73">
+         <image>
+            <Image url="@../Assets/image.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="231.0" layoutY="18.0">
+         <image>
+            <Image url="@../Assets/image%20(36).png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnItem" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="450.0" onAction="#goToItemsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Items" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgItem" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(30).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnDashboard" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="80.0" onAction="#GoToDashboardOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Dashboard" textFill="#332f4b">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgDash" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(4).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnCustomer" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="154.0" onAction="#GoToCustomersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Customer" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgCus" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(26).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnQuote" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="228.0" onAction="#goToQuotationOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Quotation" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgQuote" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(27).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnOrders" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="302.0" onAction="#goToOrdersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Purchases" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgOrder" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(28).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnPackages" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="376.0" onAction="#goToPackagesOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Order History" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgPackage" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(29).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnDIrector" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="524.0" onAction="#goToDirectorsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Directors" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgDirector" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(31).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnSupplier" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="597.0" onAction="#goToSuppliersOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Suppliers" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgSupply" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(32).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnReport" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="670.0" onAction="#goToReportsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Report" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgReport" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(33).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnProfit" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="743.0" onAction="#goToProfitOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Profit" textFill="#848c94">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgProfit" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(34).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnSettings" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="816.0" onAction="#goToSettingsOnAction" onMouseClicked="#changeButtonUI" onMouseEntered="#MaximizeButton" onMouseExited="#clearButtonUI" prefHeight="70.0" prefWidth="155.0" ripplerFill="BLACK" style="-fx-background-radius: 10;" text="Settings" textFill="#848c94">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgSettings" fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../Assets/image%20(35).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <AnchorPane fx:id="NavigationContext" layoutX="203.0" layoutY="71.0" prefHeight="861.0" prefWidth="1586.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #F3F1FB; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+            <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="49.0" layoutY="40.0">
+               <image>
+                  <Image url="@../Assets/output-onlinepngtools.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="46.0" layoutY="160.0" prefHeight="310.0" prefWidth="549.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10;">
+               <children>
+                  <Pane layoutX="421.0" layoutY="22.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                     <children>
+                        <JFXComboBox promptText="This Week" unFocusColor="#4d4d4d00" />
+                     </children>
+                  </Pane>
+                  <ImageView layoutX="53.0" layoutY="70.0">
+                     <image>
+                        <Image url="@../Assets/output-onlinepngtools%20(2).png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="266.0" layoutY="88.0">
+                     <image>
+                        <Image url="@../Assets/output-onlinepngtools%20(3).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="275.0" layoutY="138.0" style="-fx-font-size: 35; -fx-font-family: System; -fx-font-style: Bold;" text="Rs.500,000/=">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView layoutX="64.0" layoutY="118.0">
+               <image>
+                  <Image url="@../Assets/output-onlinepngtools%20(1).png" />
+               </image>
+            </ImageView>
+            <BarChart fx:id="barChartPerformance" horizontalGridLinesVisible="false" layoutX="682.0" layoutY="155.0" prefHeight="363.0" prefWidth="859.0" stylesheets="@../Assets/StyleSheets/BarChart.css">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <Label layoutX="86.0" layoutY="504.0" text="Units Sold" textFill="#848c94" />
+            <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="45.0" layoutY="521.0">
+               <image>
+                  <Image url="@../Assets/image%20(37).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="87.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="100 Units">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="56.0" layoutX="321.0" layoutY="503.0" startX="-100.0" />
+            <Label layoutX="290.0" layoutY="504.0" text="Directors" textFill="#848c94" />
+            <ImageView fitHeight="41.0" fitWidth="46.0" layoutX="239.0" layoutY="521.0">
+               <image>
+                  <Image url="@../Assets/image%20(38).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="307.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="04">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="56.0" layoutX="491.0" layoutY="503.0" startX="-100.0" />
+            <Label layoutX="460.0" layoutY="504.0" text="Customers" textFill="#848c94" />
+            <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="415.0" layoutY="518.0">
+               <image>
+                  <Image url="@../Assets/image%20(39).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="478.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="70">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="ReviewsPane" layoutX="50.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+               <children>
+                  <ImageView id="imgS" fx:id="imgPules1" fitHeight="213.0" fitWidth="353.0">
+                     <image>
+                        <Image url="@../Assets/Screenshot%202022-04-27%20162559.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label id="lbl1" fx:id="lblDash1" layoutX="64.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="CUSTOMER REVIEWS" textFill="WHITE">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane fx:id="ProductsPane" layoutX="429.0" layoutY="585.0" onMouseClicked="#GoToAllProductsOnAction" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="353.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+               <children>
+                  <ImageView id="imgS1" fx:id="imgPules2" fitHeight="213.0" fitWidth="353.0" layoutY="-2.0" onMouseEntered="#imagesPulseOnAction">
+                     <image>
+                        <Image url="@../Assets/Screenshot%202022-04-27%20170141.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label id="lbl2" fx:id="lblDash2" layoutX="81.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="All Our Products" textFill="WHITE">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane fx:id="CategoriesPane" layoutX="810.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="355.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+               <children>
+                  <ImageView id="imgS2" fx:id="imgPules3" fitHeight="213.0" fitWidth="353.0" onMouseEntered="#imagesPulseOnAction">
+                     <image>
+                        <Image url="@../Assets/Screenshot%202022-04-27%20170400.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label id="lbl3" fx:id="lblDash3" layoutX="116.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="Categories">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#48595e" />
+                              <Stop color="#48595e" offset="0.007246376811594203" />
+                              <Stop color="#6e88a4" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane fx:id="ExtrasPane" layoutX="1191.0" layoutY="585.0" onMouseEntered="#ShowPaneUI" onMouseExited="#HidePaneUI" prefHeight="213.0" prefWidth="346.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #F4F5F8;">
+               <children>
+                  <ImageView id="imgS3" fx:id="imgPules4" fitHeight="213.0" fitWidth="353.0" layoutY="-3.0" onMouseEntered="#imagesPulseOnAction">
+                     <image>
+                        <Image url="@../Assets/Screenshot%202022-04-27%20170549.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label id="lbl4" fx:id="lblDash4" layoutX="144.0" layoutY="91.0" onMouseEntered="#lblMouseEnteredOnAction" onMouseExited="#lblMouseExitedOnAction" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold Italic;" text="Extras">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.854368932038835" endY="0.16990291262135926" startY="0.32038834951456313">
+                           <stops>
+                              <Stop color="WHITE" />
+                              <Stop color="#b9b9b9" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <ImageView layoutX="729.0" layoutY="120.0">
+               <image>
+                  <Image url="@../Assets/output-onlinepngtools%20(4).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="1571.0" layoutY="29.0" style="-fx-font-size:: 10;" text="Derick Andrew Ferdinands" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <ImageView fitHeight="41.0" fitWidth="46.0" layoutX="1517.0" layoutY="18.0">
+         <image>
+            <Image url="@../Assets/34af996ddff444391edab94abcf3c7f3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="21.0" layoutX="1747.0" layoutY="28.0">
+         <image>
+            <Image url="@../Assets/arrow_drop_down_FILL0_wght400_GRAD0_opsz48.png" />
+         </image>
+         <effect>
+            <Blend />
+         </effect>
+      </ImageView>
+      <JFXButton layoutX="1512.0" layoutY="13.0" prefHeight="51.0" prefWidth="257.0" text=" ">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Line fx:id="l1" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="102.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" />
+      <Line fx:id="l2" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="175.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l3" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="249.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l4" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="324.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l5" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="398.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l6" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="474.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l7" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="548.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l8" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="619.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l9" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="691.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l10" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="762.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+      <Line fx:id="l11" endX="-142.00006103515625" endY="39.0" fill="#4da4b0" layoutX="144.0" layoutY="837.0" startX="-142.00003051757812" startY="-14.0" stroke="#5ed5e7" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" visible="false" />
+   </children>
+</AnchorPane>

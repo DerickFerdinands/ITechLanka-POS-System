@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('BebasNeue-Regular.ttf');
+}
+
+.text {
+    -fx-font-family: 'SansSerif';
+    -fx-font-size: 15;
+}
+
+.MainContext {
+    -fx-background-radius: 10;
+    -fx-border-color: White;
+}
+
+.StageStyle {
+    -fx-background-color: White;
+}
+
+
+.txtSearch{
+    -fx-text-fill: #34354B;
+}
+
+.button{
+    -fx-font-family: 'SansSerif';
+    -fx-font-size: 13;
+}
+
+#imgS:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}#imgS1:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}#imgS2:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}#imgS3:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}
+
+#lblDash1:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}
+#lblDash2:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}#lblDash3:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}#lblDash4:hover{
+    -fx-effect: dropshadow(gaussian,DARKGRAY,20,0.0,0,0);
+}

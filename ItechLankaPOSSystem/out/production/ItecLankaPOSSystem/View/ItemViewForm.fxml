@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="ItemViewMainPane" prefHeight="861.0" prefWidth="1586.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #F3F1FB; -fx-border-radius: 5; -fx-background-radius: 10;" stylesheets="@../Assets/StyleSheets/MainFont.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemViewFormController">
+   <children>
+      <AnchorPane layoutX="88.0" layoutY="24.0" prefHeight="52.0" prefWidth="926.0" style="-fx-border-color: #58D5E6; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtSearch" focusColor="#405aa800" layoutX="53.0" layoutY="7.0" onKeyReleased="#searchMatchingItems" prefHeight="39.0" prefWidth="599.0" promptText="Type  And Press Enter To ClientSearch Items..." unFocusColor="#4d4d4d07" />
+            <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="12.0" layoutY="10.0">
+               <image>
+                  <Image url="@../Assets/image%20(36).png" />
+               </image>
+            </ImageView>
+            <Line endX="100.0" layoutX="583.0" layoutY="12.0" opacity="0.53" startX="100.0" startY="30.0" />
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="-1.0" layoutY="85.0" prefHeight="786.0" prefWidth="1586.0" style="-fx-border-color: #FFFF;">
+        <content>
+          <AnchorPane fx:id="ScrollerPane" minHeight="0.0" minWidth="0.0" prefHeight="795.0" prefWidth="1566.0" style="-fx-background-color: #FFFFFF;" />
+        </content>
+      </ScrollPane>
+      <JFXButton contentDisplay="RIGHT" layoutX="1404.0" layoutY="30.0" prefHeight="36.0" prefWidth="143.0" style="-fx-border-color: #130C33; -fx-border-radius: 5; -fx-border-width: 1; -fx-background-radius: 5;" text="CHECKOUT" textFill="#141212">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="28.0" opacity="0.64">
+               <image>
+                  <Image url="@../Assets/shopping_bag_FILL0_wght400_GRAD0_opsz48.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="32.0" fitWidth="29.0" layoutX="24.0" layoutY="31.0">
+         <image>
+            <Image url="@../Assets/arrow_left_FILL0_wght400_GRAD0_opsz48.png" />
+         </image>
+      </ImageView>
+      <JFXComboBox focusColor="#34374000" labelFloat="true" layoutX="795.0" layoutY="34.0" prefHeight="32.0" prefWidth="209.0" promptText="Category" unFocusColor="#4d4d4d00" />
+   </children>
+</AnchorPane>

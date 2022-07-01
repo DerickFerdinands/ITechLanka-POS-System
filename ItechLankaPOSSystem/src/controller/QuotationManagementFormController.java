@@ -150,7 +150,7 @@ public class QuotationManagementFormController {
                     params.put("Advance",o.getPayedAmount()+"");
                     params.put("Balance",o.getTotal()-o.getPayedAmount()+"");
 
-                    JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/Quotation/Reciept.jasper"));
+                    JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/reports/Quotation.jasper"));
                     JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, params, DBConnection.getInstance().getConnection());
                     JasperViewer.viewReport(jasperPrint,false);
                     btnCancel.fire();
