@@ -122,9 +122,9 @@ public class ItemManagementFormController {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("buyingPrice"));
-        colBuyingPrice.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
-        colSellingPrice.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colBuyingPrice.setCellValueFactory(new PropertyValueFactory<>("buyingPrice"));
+        colSellingPrice.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
         btnAddItem.setDisable(true);
         loadAllItems();
