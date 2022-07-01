@@ -86,4 +86,14 @@ public class OrderDAOImpl implements OrderDAO {
 
         return id.size()>0?String.format("#O%05d",Integer.valueOf(id.get(0).replace("#O",""))+1):"#O00001";
     }
+
+    @Override
+    public Orders get(String OrderID) throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Orders orders = session.get(Orders.class, OrderID);
+        transaction.commit();
+        session.close();
+        return orders;
+    }
 }

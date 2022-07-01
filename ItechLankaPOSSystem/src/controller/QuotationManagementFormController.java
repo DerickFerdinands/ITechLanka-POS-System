@@ -76,6 +76,7 @@ public class QuotationManagementFormController {
     public JFXRadioButton rdbxQuotation;
 
     private final QuotationManagementBO qBO = (QuotationManagementBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.QUOTATION);
+    public JFXTextField txtUnitPrice;
 
     public void initialize() {
         colCOde.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
@@ -98,6 +99,7 @@ public class QuotationManagementFormController {
             cmbItemCode.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue != null)
                     setItemFields(newValue);
+                txtQty.requestFocus();
             });
         } catch (Exception e) {
             e.printStackTrace();
@@ -110,6 +112,7 @@ public class QuotationManagementFormController {
             Item item = iDAO.get(split[0]);
             itemimageview.setImage(new Image("file:" + item.getImageLocation()));
             txtQtyOnHand.setText(item.getQty() + "");
+            txtUnitPrice.setText(item.getSellingPrice()+"");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -289,6 +292,7 @@ public class QuotationManagementFormController {
         txtTotal.clear();
         txtAdvance.clear();
         txtBalance.clear();
+        txtUnitPrice.clear();
         btnAddQuotation.setDisable(true);
         btnBuyNow.setDisable(true);
         cmbItemCode.getSelectionModel().clearSelection();
@@ -319,5 +323,9 @@ public class QuotationManagementFormController {
 
     public void calculateBalance(KeyEvent keyEvent) {
         calculateTotal();
+    }
+
+    public void fireAddToCartButton(ActionEvent actionEvent) {
+        btnAddToCart.fire();
     }
 }

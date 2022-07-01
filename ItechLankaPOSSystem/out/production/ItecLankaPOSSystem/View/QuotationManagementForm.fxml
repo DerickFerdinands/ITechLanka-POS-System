@@ -74,7 +74,7 @@
       </JFXButton>
       <AnchorPane layoutX="710.0" layoutY="85.0" prefHeight="52.0" prefWidth="192.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXComboBox fx:id="cmbItemCode" focusColor="#405aa800" layoutX="2.0" layoutY="6.0" prefHeight="39.0" prefWidth="362.0" unFocusColor="#4d4d4d00" />
+            <JFXComboBox fx:id="cmbItemCode" focusColor="#405aa800" layoutX="2.0" layoutY="6.0" prefHeight="39.0" prefWidth="192.0" unFocusColor="#4d4d4d00" />
          </children>
       </AnchorPane>
       <Label layoutX="713.0" layoutY="61.0" opacity="0.66" text="Item Code/Name" textFill="#263549">
@@ -94,7 +94,7 @@
       </Label>
       <AnchorPane layoutX="1316.0" layoutY="85.0" prefHeight="52.0" prefWidth="152.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
          <children>
-            <JFXTextField fx:id="txtQty" focusColor="#405aa800" layoutX="7.0" layoutY="7.0" prefHeight="39.0" prefWidth="141.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+            <JFXTextField fx:id="txtQty" focusColor="#405aa800" layoutX="7.0" layoutY="7.0" onAction="#fireAddToCartButton" prefHeight="39.0" prefWidth="141.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
          </children>
       </AnchorPane>
       <Label layoutX="1317.0" layoutY="61.0" opacity="0.66" text="Qty" textFill="#263549">
@@ -191,5 +191,15 @@
             </Label>
          </children>
       </HBox>
+      <AnchorPane layoutX="935.0" layoutY="85.0" prefHeight="52.0" prefWidth="125.0" style="-fx-border-color: #EDEDF0; -fx-border-width: 1.5; -fx-border-radius: 5; -fx-background-radius: 5;">
+         <children>
+            <JFXTextField fx:id="txtUnitPrice" editable="false" focusColor="#405aa800" layoutX="8.0" layoutY="7.0" prefHeight="39.0" prefWidth="150.0" stylesheets="@../Assets/StyleSheets/Text.css" unFocusColor="#4d4d4d07" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="938.0" layoutY="61.0" opacity="0.66" text="Unit Price" textFill="#263549">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
