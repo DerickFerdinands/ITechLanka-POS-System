@@ -26,12 +26,16 @@ public class DAOFactory {
                 return new OrderDetailDAOImpl();
             case SUPPLIER:
                 return new SupplierCRUDController();
+            case PURCHASE:
+                return new PurchaseDAOImpl();
+            case PURCHASE_DETAIL:
+                return new PurchaseDetailDAOImpl();
             default:
                 return null;
         }
     }
 
     public enum DAOTypes {
-        CUSTOMER, DIRECTOR, ITEM, ORDER, ORDER_DETAIL, SUPPLIER
+        CUSTOMER, DIRECTOR, ITEM, ORDER, ORDER_DETAIL, SUPPLIER, PURCHASE, PURCHASE_DETAIL
     }
 }
