@@ -7,7 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OrderDAOImpl implements OrderDAO {
     @Override
@@ -95,5 +97,51 @@ public class OrderDAOImpl implements OrderDAO {
         transaction.commit();
         session.close();
         return orders;
+    }
+
+    @Override
+    public HashMap<String, Double> getDistinctSales() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery("SELECT date, SUM(total) FROM Orders GROUP BY date ORDER BY date").list();
+        transaction.commit();
+        session.close();
+        HashMap<String, Double> hashMap = new HashMap();
+        list.forEach(objects -> {hashMap.put(objects[0]+"", (Double) objects[1]);});
+        return hashMap;
+    }
+
+    @Override
+    public HashMap<String, Double> getAnnualSales() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery("SELECT YEAR(date), SUM(total) FROM Orders GROUP BY YEAR(date) ORDER BY date").list();
+        transaction.commit();
+        session.close();
+        HashMap<String, Double> hashMap = new HashMap();
+        list.forEach(objects -> {hashMap.put(objects[0]+"", (Double) objects[1]);});
+        return hashMap;
+    }
+
+    @Override
+    public HashMap<String, Double> getMonthlySales(int year) throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery("SELECT MONTH(date), SUM(total) FROM Orders WHERE YEAR(date) =:year  GROUP BY MONTH(date) ORDER BY date").setParameter("year",year).list();
+        transaction.commit();
+        session.close();
+        HashMap<String, Double> hashMap = new HashMap();
+        list.forEach(objects -> {hashMap.put(objects[0]+"", (Double) objects[1]);});
+        return hashMap;
+    }
+
+    @Override
+    public ArrayList<Integer> getDistinctYears() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Integer> list = session.createQuery("SELECT YEAR(date) FROM Orders GROUP BY YEAR(date)").list();
+        transaction.commit();
+        session.close();
+        return new ArrayList<Integer>(list);
     }
 }

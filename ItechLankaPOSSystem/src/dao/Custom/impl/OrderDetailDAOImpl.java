@@ -9,6 +9,7 @@ import javafx.scene.control.ButtonType;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,5 +89,15 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
         session.close();
 
         return id.size()>0?String.format("#OD%05d",Integer.valueOf(id.get(0).replace("#OD",""))+1):"#OD00001";
+    }
+
+    @Override
+    public double getTotalProfit() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<BigDecimal> list = session.createQuery("SELECT SUM(sellingPrice-buyingPrice) AS TotalProfit FROM OrderDetail ").list();
+        transaction.commit();
+        session.close();
+        return Double.valueOf(list.get(0)+"");
     }
 }

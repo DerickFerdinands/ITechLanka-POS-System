@@ -2,6 +2,8 @@ package controller;
 
 import Model.DashboardButton;
 import animatefx.animation.*;
+import bo.BOFactory;
+import bo.custom.DashboardBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.mysql.cj.exceptions.CJCommunicationsException;
@@ -27,6 +29,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -82,10 +85,15 @@ public class DashBoardFormController {
     public Line l9;
     public Line l10;
     public Line l11;
+    public Label lblRevenue;
+    public Label lblUnits;
+    public Label lblDirectors;
+    public Label lblCustomers;
 
     ArrayList<DashboardButton> btnList = new ArrayList<>();
     DashboardButton lastClicked;
     ImageView image = new ImageView(new Image("/Assets/image 222(40).png"));
+    private DashboardBO dBO = (DashboardBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.DASHBOARD);
 
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
         DBConnection.getInstance().getConnection();
@@ -109,6 +117,17 @@ public class DashBoardFormController {
         barChartPerformance.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
         Node n = barChartPerformance.lookup(".data0.chart-bar");
         setBarchart();
+        try {
+            HashMap<String, Double> distinctSales = dBO.getDistinctSales();
+            Double sales = distinctSales.get(LocalDate.now() + "");
+            lblRevenue.setText(sales+"");
+            lblCustomers.setText(String.format("%02d",dBO.getCustomerCount()));
+            lblUnits.setText(String.format("%02d",dBO.getItemCount())+" Units");
+            lblDirectors.setText(String.format("%02d",dBO.getDirectorCount()));
+        }catch(Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.WARNING,e.getMessage(),ButtonType.OK).show();
+        }
     }
 
     public void goToItemsOnAction(ActionEvent actionEvent) throws IOException {
@@ -280,33 +299,6 @@ public class DashBoardFormController {
 
     public void imagesPulseOnAction(MouseEvent mouseEvent) {
 
-//
-//        Object o = mouseEvent.getSource();
-//
-//        if (o instanceof ImageView) {
-//            ImageView i = (ImageView) o;
-//
-//
-//            if(i.getId().equals("imgS")){
-//                new Pulse(imgPules1).play();
-//                new Pulse(lblDash1).play();
-//
-//            }else if(i.getId().equals("imgS1")){
-//                new Pulse(imgPules2).play();
-//                new Pulse(lblDash2).play();
-//
-//            }else if(i.getId().equals("imgS2")){
-//                new Pulse(imgPules3).play();
-//                new Pulse(lblDash3).play();
-//
-//            }else if(i.getId().equals("imgS3")){
-//                new Pulse(imgPules4).play();
-//                new Pulse(lblDash4).play();
-//
-//            }
-//
-//        }
-
     }
 
     public void lblMouseEnteredOnAction(MouseEvent mouseEvent) {
@@ -328,8 +320,6 @@ public class DashBoardFormController {
 
             }
         }
-
-
     }
 
     public void lblMouseExitedOnAction(MouseEvent mouseEvent) {
@@ -351,26 +341,23 @@ public class DashBoardFormController {
 
     private void setBarchart() {
         XYChart.Series series = new XYChart.Series();
-        series.setName("Sample Name");
+        series.setName("Daily Sales");
         //populating the series with data
-        series.getData().add(new XYChart.Data("January", 577));
-        series.getData().add(new XYChart.Data("February", 22));
-        series.getData().add(new XYChart.Data("March", 452));
-        series.getData().add(new XYChart.Data("April", 245));
-        series.getData().add(new XYChart.Data("May", 87));
-        series.getData().add(new XYChart.Data("June", 447));
-        series.getData().add(new XYChart.Data("July", 699));
-        series.getData().add(new XYChart.Data("August", 58));
-        series.getData().add(new XYChart.Data("September", 45));
-        series.getData().add(new XYChart.Data("October", 252));
-        series.getData().add(new XYChart.Data("November", 45));
-        series.getData().add(new XYChart.Data("December", 25));
+        try {
+            HashMap<String, Double> distinctSales = dBO.getDistinctSales();
+            for(String date : distinctSales.keySet()){
+                series.getData().add(new XYChart.Data(date, distinctSales.get(date)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         barChartPerformance.getData().add(series);
 
     }
 
     public void GoToAllProductsOnAction(MouseEvent mouseEvent) throws IOException {
-        setUI("ItemViewForm");
+       /* setUI("ItemViewForm");*/
     }
 }

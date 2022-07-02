@@ -116,8 +116,8 @@ public class ItemManagementFormController {
         RegexMap.put(txtCode, Pattern.compile("^(I00-)[0-9]{1,10}$"));
         RegexMap.put(txtName, Pattern.compile("^[A-z1-9 ,() ]+$"));
         RegexMap.put(txtQty, Pattern.compile("^[0-9]+$"));
-        RegexMap.put(txtBuyingPrice, Pattern.compile("^[0-9]+$"));
-        RegexMap.put(txtSellingPrice, Pattern.compile("^[0-9]+$"));
+        RegexMap.put(txtBuyingPrice, Pattern.compile("^[0-9]+[.0-9]{0,3}?$"));
+        RegexMap.put(txtSellingPrice, Pattern.compile("^[0-9]+[.0-9]{0,3}?$"));
 
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));

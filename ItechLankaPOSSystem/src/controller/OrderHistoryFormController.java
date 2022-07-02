@@ -64,7 +64,6 @@ public class OrderHistoryFormController {
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         colUpdateOption.setCellValueFactory(new PropertyValueFactory<>("updateBtn"));
         colBillOption.setCellValueFactory(new PropertyValueFactory<>("billBtn"));
-
         loadAllOrders();
     }
 
@@ -87,7 +86,7 @@ public class OrderHistoryFormController {
         btn.setStyle("-fx-background-color: Black;" + "-fx-text-fill: White");
         btn.setOnAction(event -> {
             updateOrderPane.setVisible(true);
-            new FadeIn(updateOrderPane).play();
+            new FadeIn(updateOrderPane).setSpeed(5).play();
             lblOrderID.setText(OrderID);
         });
         if (status.equals("Payed")) btn.setDisable(true);

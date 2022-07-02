@@ -103,4 +103,14 @@ public class CustomerCRUDController implements CustomerDAO {
         session.close();
         return Customer.size()>0?Customer.get(0):null;
     }
+
+    @Override
+    public long getCount() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Long> list = session.createQuery("SELECT COUNT(Id) FROM Customer").list();
+        transaction.commit();
+        session.close();
+        return list.get(0);
+    }
 }

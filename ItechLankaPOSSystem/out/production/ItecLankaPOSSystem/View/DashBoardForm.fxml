@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
@@ -12,7 +11,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
@@ -238,11 +236,6 @@
             </ImageView>
             <AnchorPane layoutX="46.0" layoutY="160.0" prefHeight="310.0" prefWidth="549.0" style="-fx-background-color: #ECFBFD; -fx-background-radius: 10;">
                <children>
-                  <Pane layoutX="421.0" layoutY="22.0" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                     <children>
-                        <JFXComboBox promptText="This Week" unFocusColor="#4d4d4d00" />
-                     </children>
-                  </Pane>
                   <ImageView layoutX="53.0" layoutY="70.0">
                      <image>
                         <Image url="@../Assets/output-onlinepngtools%20(2).png" />
@@ -253,7 +246,7 @@
                         <Image url="@../Assets/output-onlinepngtools%20(3).png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="275.0" layoutY="138.0" style="-fx-font-size: 35; -fx-font-family: System; -fx-font-style: Bold;" text="Rs.500,000/=">
+                  <Label fx:id="lblRevenue" layoutX="275.0" layoutY="138.0" style="-fx-font-size: 35; -fx-font-family: System; -fx-font-style: Bold;" text="Rs.500,000/=">
                      <font>
                         <Font size="1.0" />
                      </font>
@@ -279,7 +272,7 @@
                   <Image url="@../Assets/image%20(37).png" />
                </image>
             </ImageView>
-            <Label layoutX="87.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="100 Units">
+            <Label fx:id="lblUnits" layoutX="87.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="100 Units">
                <font>
                   <Font size="1.0" />
                </font>
@@ -291,7 +284,7 @@
                   <Image url="@../Assets/image%20(38).png" />
                </image>
             </ImageView>
-            <Label layoutX="307.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="04">
+            <Label fx:id="lblDirectors" layoutX="307.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="04">
                <font>
                   <Font size="1.0" />
                </font>
@@ -303,7 +296,7 @@
                   <Image url="@../Assets/image%20(39).png" />
                </image>
             </ImageView>
-            <Label layoutX="478.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="70">
+            <Label fx:id="lblCustomers" layoutX="478.0" layoutY="524.0" style="-fx-font-size: 25; -fx-font-family: System; -fx-font-style: Bold;" text="70">
                <font>
                   <Font size="1.0" />
                </font>
@@ -400,7 +393,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label layoutX="1571.0" layoutY="29.0" style="-fx-font-size:: 10;" text="Derick Andrew Ferdinands" textAlignment="CENTER">
+      <Label layoutX="1571.0" layoutY="29.0" style="-fx-font-size:: 10;" text="   I Tech Lanka Pvt Ltd." textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

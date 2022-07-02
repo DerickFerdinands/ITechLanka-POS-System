@@ -1,9 +1,6 @@
 package bo;
 
-import bo.custom.impl.OrderHistoryBOImpl;
-import bo.custom.impl.PurchaseManagementBOImpl;
-import bo.custom.impl.QuotationManagementBOImpl;
-import bo.custom.impl.SupplierBOImpl;
+import bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -25,12 +22,18 @@ public class BOFactory {
                 return new PurchaseManagementBOImpl();
             case ORDER_HISTORY:
                 return new OrderHistoryBOImpl();
+            case DIRECTOR_PROFIT:
+                return new ProfitBOImpl();
+            case DASHBOARD:
+                return new DashboardBOImpl();
+            case REPORTS:
+                return new ReportsBOImpl();
             default:
                 return null;
         }
     }
 
     public enum BOTypes {
-        QUOTATION, SUPPLIER, PURCHASE, ORDER_HISTORY
+        QUOTATION, SUPPLIER, PURCHASE, ORDER_HISTORY, DIRECTOR_PROFIT, DASHBOARD, REPORTS
     }
 }

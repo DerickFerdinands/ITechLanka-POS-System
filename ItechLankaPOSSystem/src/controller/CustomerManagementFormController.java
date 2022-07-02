@@ -119,6 +119,7 @@ public class CustomerManagementFormController {
         txtMobile.setText(tm.getMobile());
         txtAddress.setText(tm.getAddress());
         btnAddCustomer.setText("Update Client");
+        btnAddCustomer.setDisable(false);
     }
 
     private void loadALlCustomers() {

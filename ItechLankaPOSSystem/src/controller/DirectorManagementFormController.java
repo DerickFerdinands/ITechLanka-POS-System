@@ -152,6 +152,7 @@ public class DirectorManagementFormController {
         txtAddress.setText(tm.getAddress());
         txtMargin.setText(String.valueOf(tm.getProfitMargin()));
         btnAddDir.setText("Update Director");
+        btnAddDir.setDisable(false);
     }
 
     private void loadAllDirectors() {

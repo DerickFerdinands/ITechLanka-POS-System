@@ -1,13 +1,11 @@
-package dao.Custom;
+package bo.custom;
 
-import dao.CrudDAO;
-import entity.Orders;
+import bo.SuperBO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public interface OrderDAO extends CrudDAO<Orders,String> {
-    Orders get(String OrderID) throws Exception;
+public interface ReportsBO extends SuperBO {
 
     HashMap<String, Double> getDistinctSales() throws Exception;
 

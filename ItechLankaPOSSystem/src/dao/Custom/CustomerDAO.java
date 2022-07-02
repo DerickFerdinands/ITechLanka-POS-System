@@ -12,4 +12,6 @@ public interface CustomerDAO extends CrudDAO<Customer, String> {
     ArrayList<String> getALlCustomerNICAndNames() throws Exception;
 
     Customer get(String id) throws Exception;
+
+    long getCount() throws Exception;
 }

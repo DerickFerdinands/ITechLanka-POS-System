@@ -100,4 +100,13 @@ public class DirectorCRUDController implements DirectorDAO {
     }
 
 
+    @Override
+    public long getCount() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Long> list = session.createQuery("SELECT COUNT(id) FROM Director").list();
+        transaction.commit();
+        session.close();
+        return list.get(0);
+    }
 }

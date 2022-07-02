@@ -99,5 +99,15 @@ public class ItemCRUDController implements ItemDAO {
         return item;
     }
 
+    @Override
+    public long getCount() throws Exception {
+        Session session = FactoryConfigurations.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Long> list = session.createQuery("SELECT COUNT(code) FROM Item").list();
+        transaction.commit();
+        session.close();
+        return list.get(0);
+    }
+
 
 }
